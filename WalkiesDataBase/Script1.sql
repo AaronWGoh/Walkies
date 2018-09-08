@@ -1,18 +1,8 @@
-﻿/*
- Pre-Deployment Script Template							
---------------------------------------------------------------------------------------
- This file contains SQL statements that will be executed before the build script.	
- Use SQLCMD syntax to include a file in the pre-deployment script.			
- Example:      :r .\myfile.sql								
- Use SQLCMD syntax to reference a variable in the pre-deployment script.		
- Example:      :setvar TableName MyTable							
-               SELECT * FROM [$(TableName)]					
---------------------------------------------------------------------------------------
-*/
-	CREATE TABLE State(
+﻿	CREATE TABLE State(
 		StateCode VARCHAR(2) NOT NULL PRIMARY KEY,
 		StateName VARCHAR(50) NOT NULL
 		)
+	GO
 
 	CREATE TABLE Shelter(
 		ShelterId UNIQUEIDENTIFIER PRIMARY KEY,
@@ -28,11 +18,13 @@
 		Fax VARCHAR(20) NULL,
 		Email VARCHAR(100) NOT NULL
 		)
+		GO
 
 	CREATE TABLE UserType (
 		UserTypeCode VARCHAR(10) NOT NULL PRIMARY KEY,
 		Name TEXT NOT NULL
 		)
+		GO
 
 	CREATE TABLE UserProfile(
 		UserProfileId UNIQUEIDENTIFIER PRIMARY KEY NOT NULL,
@@ -48,17 +40,20 @@
 		Email VARCHAR(100) NOT NULL,
 		ProfileImageUrl VARCHAR(200) NOT null
 		)
-		
+		GO
+
 	CREATE TABLE AccountType (
 		AccountTypeCode VARCHAR(10) NOT NULL PRIMARY KEY,
 		Name TEXT NOT NULL
 		)
+		GO
 
 	CREATE TABLE Account(
 		AccountId UNIQUEIDENTIFIER PRIMARY KEY NOT NULL,
 		ParentAccountId UNIQUEIDENTIFIER NULL FOREIGN KEY REFERENCES Account(AccountId),
 		ShelterId UNIQUEIDENTIFIER NOT null
 	)
+	GO
 
 	CREATE TABLE AccountUser(
 		AccountUserId UNIQUEIDENTIFIER PRIMARY KEY NOT NULL,
@@ -73,6 +68,7 @@
 		ResetToken varchar(50) null,
 		ResetTokenExpiration datetime null
 	)
+	GO
 
     CREATE TABLE Dog (
         DogId UNIQUEIDENTIFIER PRIMARY KEY,
@@ -84,6 +80,7 @@
 		PrimaryImageFileId UNIQUEIDENTIFIER NULL,
 		IsPublic BIT NOT NULL default(0)
     )
+	GO
 
 	CREATE TABLE MetaFile(
 		MetaFileId UNIQUEIDENTIFIER PRIMARY KEY NOT NULL,
@@ -94,6 +91,7 @@
 		StorageUri VARCHAR(200) NOT NULL,
 		Description TEXT NOT NULL
 	)
+	GO
     
 	CREATE TABLE DogFile(
 		DogFileId UNIQUEIDENTIFIER PRIMARY KEY NOT NULL,
@@ -101,6 +99,7 @@
 		MetaFileId UNIQUEIDENTIFIER NOT NULL FOREIGN KEY REFERENCES MetaFile(MetaFileId),
 		SortOrder INT NOT NULL
 	)
+	GO
 
 	CREATE TABLE ShelterFile(
 		ShelterFileId UNIQUEIDENTIFIER PRIMARY KEY NOT NULL,
@@ -108,3 +107,4 @@
 		MetaFileId UNIQUEIDENTIFIER NOT NULL FOREIGN KEY REFERENCES MetaFile(MetaFileId),
 		SortOrder INT NOT NULL
 	)
+	GO
