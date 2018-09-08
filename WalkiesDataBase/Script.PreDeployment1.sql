@@ -60,6 +60,19 @@
 		ShelterId UNIQUEIDENTIFIER NOT null
 	)
 
+	CREATE TABLE AccountUser(
+		AccountUserId UNIQUEIDENTIFIER PRIMARY KEY NOT NULL,
+		UserTypeCode varchar(10) not null FOREIGN KEY REFERENCES UserType(UserTypeCode),
+		FirstName  TEXT not null,
+		LastName text not null,
+		LoginEmail varchar(100) NOT NULL,
+		RecoveryPhone varchar(20) NOT NULL,
+		PasswordHash varchar(50) not null,
+		CanLogin bit DEFAULT(1),
+		IsLockedDateTime datetime NULL,
+		ResetToken varchar(50) null,
+		ResetTokenExpiration datetime null
+	)
 
     CREATE TABLE Dog (
         DogId UNIQUEIDENTIFIER PRIMARY KEY,
