@@ -21,7 +21,8 @@ namespace Walkies.Admin.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Shelter> shelters = new List<Shelter>();
+            return View(shelters);
         }
     }
 }
