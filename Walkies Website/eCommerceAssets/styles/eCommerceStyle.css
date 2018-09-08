@@ -159,6 +159,18 @@ header {
 	text-transform: uppercase;
 	margin-top: 8px;
 }
+
+.Submit{
+	position: relative;
+	width: 84%;
+	background-color: rgba(95,154,102,1.00);
+	height: 35px;
+	color: rgba(255,255,255,1.00);
+	border-style: none;
+	font-size: 14px;
+	text-transform: uppercase;
+	margin-top: 8px;
+}
 /* footer */
 #mainWrapper footer {
 	clear: both;
@@ -432,6 +444,8 @@ header #headerLinks a {
 #navbar ul {
 	text-decoration: none;
 	list-style-type: none;
+	height: 30px;
+	padding-top: 11px;
 }
 
 #navbar ul li {
