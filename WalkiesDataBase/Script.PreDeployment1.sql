@@ -10,7 +10,7 @@
 --------------------------------------------------------------------------------------
 */
 	CREATE TABLE State(
-		StateCode VARCHAR(2) NOT NULL,
+		StateCode VARCHAR(2) NOT NULL PRIMARY KEY,
 		StateName VARCHAR(50) NOT NULL
 		)
 
@@ -30,7 +30,7 @@
 		)
 
 	CREATE TABLE UserType (
-		UserTypeCode VARCHAR(10) NOT NULL,
+		UserTypeCode VARCHAR(10) NOT NULL PRIMARY KEY,
 		Name TEXT NOT NULL
 		)
 
@@ -50,7 +50,7 @@
 		)
 		
 	CREATE TABLE AccountType (
-		AccountTypeCode VARCHAR(10) NOT NULL,
+		AccountTypeCode VARCHAR(10) NOT NULL PRIMARY KEY,
 		Name TEXT NOT NULL
 		)
 
