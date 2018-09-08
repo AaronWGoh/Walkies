@@ -10,7 +10,6 @@ Street2 {"label":"nvarchar(100),not null"}
 City {"label":"nvarchar(100),not null"}
 +StateCode {"label":"nvarchar(2),not null"}
 Zip {"label":"nvarchar(9),not null"}
-Country {"label":"nvarchar(100),not null"}
 Latitude {"label":"decimal(18,9),null"}
 Longitude {"label":"decimal(18,9),null"}
 Phone {"label":"nvarchar(20),not null"}
@@ -60,16 +59,9 @@ Name {"label":"text,not null"}
 [Account]
 *+AccountId {"label":"uuid,not null"}
 +ParentAccountId {"label":"uuid,null"}
-+CompanyId {"label":"uuid,not null"}
++ShelterId {"label":"uuid,not null"}
 
 Account 1--1 UserProfile
-
-[OwnerManager]
-*OwnerAccountId {"label":"uuid,not null"}
-*ManagerAccountId {"label":"uuid,not null"}
-
-OwnerManager *--1 Account
-OwnerManager *--1 Account
 
 [Dog]
 *DogId {"label":"uuid,not null"}
@@ -80,7 +72,6 @@ Description {"label":"text,null"}
 Breed {"label":"nvarchar(50), null"}
 AvailableDate {"label":"datetime,null"}
 +PrimaryImageFileId {"label":"uuid,null"}
-AttributeJson {"label":"jsonb,null"}
 IsPublic {"label":"boolean,not null,default(1)"}
 
 [MetaFile]
@@ -93,8 +84,8 @@ StorageUri {label:"varchar(200),not null"}
 Description {label:"text,null"}
 
 [DogFile]
-*PropertyFileId {label:"uuid,not null"}
-+PropertyId {label:"uuid,not null"} # ui:kn
+*DogFileId {label:"uuid,not null"}
++DogId {label:"uuid,not null"} # ui:kn
 +MetaFileId {label:"uuid,not null"} # ui:kn
 SortOrder {label:"int,not null"}
 
