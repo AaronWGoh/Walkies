@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Walkies.Admin", "Walkies.Ad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Walkies_Android", "Walkies_Android\Walkies_Android.csproj", "{FB57F290-3DE9-4FB2-8B7E-5F12E2B388D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Walkies.Common", "Walkies.Core\Walkies.Common.csproj", "{AF739A46-0089-4BDF-9955-4E0CC37B4674}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,18 @@ Global
 		{FB57F290-3DE9-4FB2-8B7E-5F12E2B388D7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{FB57F290-3DE9-4FB2-8B7E-5F12E2B388D7}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{FB57F290-3DE9-4FB2-8B7E-5F12E2B388D7}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
+		{AF739A46-0089-4BDF-9955-4E0CC37B4674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF739A46-0089-4BDF-9955-4E0CC37B4674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF739A46-0089-4BDF-9955-4E0CC37B4674}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{AF739A46-0089-4BDF-9955-4E0CC37B4674}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{AF739A46-0089-4BDF-9955-4E0CC37B4674}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{AF739A46-0089-4BDF-9955-4E0CC37B4674}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{AF739A46-0089-4BDF-9955-4E0CC37B4674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF739A46-0089-4BDF-9955-4E0CC37B4674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF739A46-0089-4BDF-9955-4E0CC37B4674}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{AF739A46-0089-4BDF-9955-4E0CC37B4674}.Release|iPhone.Build.0 = Release|Any CPU
+		{AF739A46-0089-4BDF-9955-4E0CC37B4674}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{AF739A46-0089-4BDF-9955-4E0CC37B4674}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
