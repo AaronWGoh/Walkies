@@ -11,7 +11,7 @@ using Walkies_Android.Models;
 
 namespace Walkies_Android
 {
-    [Activity(Label = "Walkies_Android", MainLauncher = true)]
+    [Activity(Label = "Walkies", MainLauncher = true)]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
@@ -34,7 +34,7 @@ namespace Walkies_Android
 
             // Load the rendered HTML into the view with a base URL 
             // that points to the root of the bundled Assets folder
-            webView.LoadDataWithBaseURL("file:///android_asset/", page, "text/html", "UTF-8", null);
+            webView.LoadDataWithBaseURL("www.doggowalkies.org", page, "text/html", "UTF-8", null);
 
         }
 
