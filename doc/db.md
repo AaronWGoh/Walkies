@@ -59,7 +59,7 @@ Name {"label":"text,not null"}
 [Account]
 *+AccountId {"label":"uuid,not null"}
 +ParentAccountId {"label":"uuid,null"}
-+CompanyId {"label":"uuid,not null"}
++ShelterId {"label":"uuid,not null"}
 
 Account 1--1 UserProfile
 
