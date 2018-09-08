@@ -66,7 +66,6 @@ Account 1--1 UserProfile
 [Dog]
 *DogId {"label":"uuid,not null"}
 +ShelterId {"label":"uuid, not null"}
-+ParentUnitId {"label":"uuid,null"}
 Name {"label":"nvarchar(100),null"}
 Description {"label":"text,null"}
 Breed {"label":"nvarchar(50), null"}
