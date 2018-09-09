@@ -26,13 +26,13 @@ namespace Walkies.DatabaseOperations
 
         public async Task<Dog> Insert(Dog dog)
         {
-            var result = await QueryAsync<Dog>(_qs.Dog.Insert, new { dog });
+            var result = await QueryAsync<Dog>(_qs.Dog.Insert, dog );
             return result.FirstOrDefault();
         }
 
         public async Task<Dog> Update(Dog dog)
         {
-            var result = await QueryAsync<Dog>(_qs.Dog.Update, new { dog });
+            var result = await QueryAsync<Dog>(_qs.Dog.Update, dog );
             return result.FirstOrDefault();
         }
 

@@ -7,7 +7,8 @@ namespace Walkies.Common
     using System.Data.SqlClient;
     using Microsoft.Extensions.Configuration;
     using Dapper;
-    
+    using Npgsql;
+
     public class Database
     {
         private IConfiguration _cfg;
@@ -18,14 +19,14 @@ namespace Walkies.Common
 
         public IDbConnection GetConnection()
         {
-            SqlConnection conn = new SqlConnection(_cfg.GetConnectionString("DefaultDb"));
+            NpgsqlConnection conn = new NpgsqlConnection(_cfg.GetConnectionString("DefaultDb"));
             conn.Open();
             return conn;
         }
 
         public async Task<IDbConnection> GetConnectionAsync()
         {
-            SqlConnection conn = new SqlConnection(_cfg.GetConnectionString("DefaultDb"));
+            NpgsqlConnection conn = new NpgsqlConnection(_cfg.GetConnectionString("DefaultDb"));
             await conn.OpenAsync();
             return conn;
         }
