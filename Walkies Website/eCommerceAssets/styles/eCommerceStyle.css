@@ -43,9 +43,23 @@ header {
 	clear: both;
 	background-color: rgba(1,185,0,1.00);
 	color: rgba(255,255,255,1.00);
-	padding-left: 115px;
+	padding-left: 50px;
 	padding-top: 57px;
 	padding-bottom: 57px;
+	width: 510px;
+}
+
+#secondoffer {
+	font-family: 'Montserrat', sans-serif;
+	background-color: rgba(77,94,77,1.00);
+	color: rgba(255,255,255,1.00);
+	padding-top: 57px;
+	padding-bottom: 57px;
+	width: 510px;
+	margin-left: 660px;
+	text-align: right;
+	padding-right: 50px;
+	margin-top: -217px;
 }
 /* Main content of the site */
 #content {
