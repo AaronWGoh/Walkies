@@ -6,8 +6,10 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="1.50.5" />
+    <PackageReference Include="MediatR" Version="4.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
     <PackageReference Include="Npgsql" Version="4.0.3" />
+    <PackageReference Include="RT.Comb" Version="2.3.0" />
   </ItemGroup>
 
 </Project>

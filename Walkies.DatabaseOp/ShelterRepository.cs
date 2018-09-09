@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Walkies.Admin.Models;
+using Walkies.Common.Models;
 using Walkies.Common;
 
 namespace Walkies.DatabaseOperations
@@ -34,6 +34,11 @@ namespace Walkies.DatabaseOperations
         {
             var result = await QueryAsync<Shelter>(_qs.Shelter.Update, new { shelter });
             return result.FirstOrDefault();
+        }
+
+        public async Task Delete(Guid id)
+        {
+            await ExecuteAsync(_qs.Shelter.Delete, new { @ShelterId = id });
         }
     }
 }

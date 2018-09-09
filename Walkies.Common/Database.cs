@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Walkies.Common
 {
-    using System.Configuration;
     using System.Data;
     using System.Data.SqlClient;
-    using Npgsql;
     using Microsoft.Extensions.Configuration;
     using Dapper;
 
@@ -23,14 +18,14 @@ namespace Walkies.Common
 
         public IDbConnection GetConnection()
         {
-            NpgsqlConnection conn = new NpgsqlConnection(_cfg.GetConnectionString("DefaultDb"));
+            SqlConnection conn = new SqlConnection(_cfg.GetConnectionString("DefaultDb"));
             conn.Open();
             return conn;
         }
 
         public async Task<IDbConnection> GetConnectionAsync()
         {
-            NpgsqlConnection conn = new NpgsqlConnection(_cfg.GetConnectionString("DefaultDb"));
+            SqlConnection conn = new SqlConnection(_cfg.GetConnectionString("DefaultDb"));
             await conn.OpenAsync();
             return conn;
         }
