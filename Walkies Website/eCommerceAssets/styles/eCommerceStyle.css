@@ -38,14 +38,39 @@ header {
 	font-size: 14px;
 }
 /* Offer text banner*/
-#offer {
+#home_first {
 	font-family: 'Montserrat', sans-serif;
 	clear: both;
 	background-color: rgba(1,185,0,1.00);
 	color: rgba(255,255,255,1.00);
-	padding-left: 115px;
+	padding-left: 50px;
 	padding-top: 57px;
 	padding-bottom: 57px;
+	width: 510px;
+}
+
+#home_second {
+	font-family: 'Montserrat', sans-serif;
+	background-color: rgba(77,94,77,1.00);
+	color: rgba(255,255,255,1.00);
+	padding-top: 57px;
+	padding-bottom: 57px;
+	width: 510px;
+	margin-left: 660px;
+	text-align: right;
+	padding-right: 50px;
+	margin-top: -219px;
+}
+#shelter {
+	font-family: 'Montserrat', sans-serif;
+	clear: both;
+	background-color: rgba(1,185,0,1.00);
+	color: rgba(255,255,255,1.00);
+	padding-top: 4px;
+	padding-bottom: 70px;
+	width: 1220px;
+	text-align: center;
+	height: 0px;
 }
 /* Main content of the site */
 #content {
@@ -149,6 +174,18 @@ header {
 	margin-top: 8px;
 }
 .SignUp{
+	position: relative;
+	width: 84%;
+	background-color: rgba(95,154,102,1.00);
+	height: 35px;
+	color: rgba(255,255,255,1.00);
+	border-style: none;
+	font-size: 14px;
+	text-transform: uppercase;
+	margin-top: 8px;
+}
+
+.Submit{
 	position: relative;
 	width: 84%;
 	background-color: rgba(95,154,102,1.00);
@@ -432,6 +469,8 @@ header #headerLinks a {
 #navbar ul {
 	text-decoration: none;
 	list-style-type: none;
+	height: 30px;
+	padding-top: 11px;
 }
 
 #navbar ul li {
