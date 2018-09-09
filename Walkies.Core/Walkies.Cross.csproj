@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Walkies.Common\Walkies.Common.csproj" />
-    <ProjectReference Include="..\Walkies.DatabaseOp\Walkies.DatabaseOperations.csproj" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.4.118" />
   </ItemGroup>
 
 </Project>

@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Views;
 using Android.Database;
 using System;
+using Walkies.Cross;
 
 namespace Walkies_Android
 {
@@ -24,13 +25,13 @@ namespace Walkies_Android
         {
             string username = FindViewById<EditText>(Resource.Id.editText1).Text;
             string password = FindViewById<EditText>(Resource.Id.editText2).Text;
-           // bool login = DataBaseGrabber.LoginTry(username, password);
-           /* if (login == true)
+            bool login = DataBaseGrabber.LoginTry(username, password);
+            if (login == true)
             {
                 SetContentView(Resource.Layout.Search);
             }
             else
-                FindViewById<TextView>(Resource.Id.textView1).Text = "Incorrect Username or Password";*/
+                FindViewById<TextView>(Resource.Id.textView1).Text = "Incorrect Username or Password";
         }
     }
 }
