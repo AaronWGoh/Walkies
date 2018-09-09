@@ -3,5 +3,51 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:actionBarNavMode="tabs">
+    <TextView
+        android:text="                                Username"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText1" />
+    <TextView
+        android:text="                                   Password"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+    <EditText
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="364.5dp"
+        android:layout_height="65.0dp"
+        android:id="@+id/linearLayout1"
+        android:layout_marginTop="61.0dp"
+        android:layout_marginBottom="0.0dp">
+        <TextView
+            android:text="                     Shelter?"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="213.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textView3" />
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="145.5dp"
+            android:layout_height="44.5dp"
+            android:layout_marginRight="60.0dp" />
+    </LinearLayout>
+    <Button
+        android:text="Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1" />
 </LinearLayout>
