@@ -8,7 +8,7 @@ namespace Walkies.Web.Controllers
 {
     public class MapController : Controller
     {
-        public IActionResult MapPage()
+        public IActionResult Index()
         {
             return View();
         }

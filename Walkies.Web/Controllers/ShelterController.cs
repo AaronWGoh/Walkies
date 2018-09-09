@@ -23,7 +23,7 @@ namespace Walkies.Web.Controllers
             _shelterRepo = shelterRepo;
         }
 
-        public IActionResult Shelter()
+        public IActionResult Index()
         {
             return View();
         }
