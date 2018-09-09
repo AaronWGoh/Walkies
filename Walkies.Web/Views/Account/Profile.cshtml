@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Homepage - Walkies";
+    ViewData["Title"] = "Profile - Walkies";
 }
 <html>
 <head>
@@ -16,28 +16,15 @@
     <div id="mainWrapper">
         <header>
             <!-- This is the header content. It contains Logo and links -->
-            <div id="headerLinks"><strong><a href="@Url.Content("~/Account/Profile")">Profile</a></strong></div>
+            <div id="headerLinks"><strong></strong></div>
         </header>
-        <section id="doggo_logo"></section>
         <section id="image_logo">
             <a href="@Url.Content("~/Home/Index")">
-                <img src="@Url.Content("~/Images/DoggoLogo.png")" width="350" height="348" alt="" /><img src="@Url.Content("~/Images/TextLogo.png")" width="400" height="317" alt="" />
+                <img src="@Url.Content("~Images/DoggoLogo.png")" width="350" height="348" alt="" /><img src="@Url.Content("~Images/TextLogo.png")" width="400" height="317" alt="" />
             </a>
         </section>
-        <a href="@Url.Content("~/Map/Index")" id="home_first">
-            <section id="home_first2">
-                <!-- The offer section displays a banner text for promotions -->
-                <h1>Map</h1>
-                <h4>Find a Shelter Near You</h4>
-            </section>
-        </a>
-        <a href="@Url.Content("~/Shelter/Index")" id="home_second">
-            <section>
-                <!-- The offer section displays a banner text for promotions -->
-                <h1>Shelter</h1>
-                <h4>Reserve a Dog to Walk at a Shelter Near You</h4>
-            </section>
-        </a>
+        <a href="@Url.Content("~/Map/Index")" id="home_first">  </a>
+
         <div id="navbar">
             <ul>
                 <li><a href="@Url.Content("~/Home/Index")">Home</a></li>
@@ -48,18 +35,12 @@
         </div>
 
         <div id="content">
-            <section class="sidebar_Home">
+            <section class="sidebar_Profile">
                 <!-- This adds a sidebar with 1 searchbox,2 menusets, each with 4 links -->
                 <!--<input type="text"  id="search" value="search">-->
                 <div id="menubar">
                     <nav class="menu">
-                        <h5>
-                            <!-- Title for menuset 1 -->Shelters - Sign up here!
-                            <p></p>
-                            <input type="button" name="button" value="Sign Up" class="SignUp">
-                        </h5>
-                        <hr>
-                        <h2>Sign Up to Walk</h2>
+                        <h2>Profile</h2>
                         <form>
                             <div class="form-group">
                                 <label for="name1"></label>
@@ -88,7 +69,7 @@
                             </div>
                             <p></p>
                             <a href="@Url.Content("~/Home/Index")">
-                                <button type="submit" class="Submit">Submit</button>
+                                <button type="submit" class="Submit">Save Changes</button>
                             </a>
                         </form>
 
@@ -123,4 +104,3 @@
     </div>
 </body>
 </html>
-

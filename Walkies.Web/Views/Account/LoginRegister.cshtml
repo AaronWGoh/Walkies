@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Homepage - Walkies";
+    ViewData["Title"] = "Login Register - Walkies";
 }
 <html>
 <head>
@@ -16,36 +16,15 @@
     <div id="mainWrapper">
         <header>
             <!-- This is the header content. It contains Logo and links -->
-            <div id="headerLinks"><strong><a href="@Url.Content("~/Account/Profile")">Profile</a></strong></div>
+            <div id="headerLinks"><strong></strong></div>
         </header>
-        <section id="doggo_logo"></section>
         <section id="image_logo">
             <a href="@Url.Content("~/Home/Index")">
-                <img src="@Url.Content("~/Images/DoggoLogo.png")" width="350" height="348" alt="" /><img src="@Url.Content("~/Images/TextLogo.png")" width="400" height="317" alt="" />
+                <img src="@Url.Content("~Images/DoggoLogo.png")" width="350" height="348" alt="" /><img src="@Url.Content("~Images/TextLogo.png")" width="400" height="317" alt="" />
             </a>
         </section>
-        <a href="@Url.Content("~/Map/Index")" id="home_first">
-            <section id="home_first2">
-                <!-- The offer section displays a banner text for promotions -->
-                <h1>Map</h1>
-                <h4>Find a Shelter Near You</h4>
-            </section>
-        </a>
-        <a href="@Url.Content("~/Shelter/Index")" id="home_second">
-            <section>
-                <!-- The offer section displays a banner text for promotions -->
-                <h1>Shelter</h1>
-                <h4>Reserve a Dog to Walk at a Shelter Near You</h4>
-            </section>
-        </a>
-        <div id="navbar">
-            <ul>
-                <li><a href="@Url.Content("~/Home/Index")">Home</a></li>
-                <li><a href="@Url.Content("~/Shelter/Index")">Shelter</a></li>
-                <li><a href="@Url.Content("~/Map/Index")">Map</a></li>
-                <li><a href="@Url.Content("~/Map/DogWalker")">Walker Tracker</a></li>
-            </ul>
-        </div>
+
+
 
         <div id="content">
             <section class="sidebar_Home">
@@ -123,4 +102,3 @@
     </div>
 </body>
 </html>
-

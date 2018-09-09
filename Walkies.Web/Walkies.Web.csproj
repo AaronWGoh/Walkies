@@ -5,6 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\eCommerceAssets\images\200x200.png" />
+    <Content Remove="wwwroot\eCommerceAssets\styles\eCommerceStyle.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\eCommerceAssets\images\200x200.png" />
+    <None Include="wwwroot\eCommerceAssets\styles\eCommerceStyle.css" />
+    <None Include="wwwroot\Images\anotherdog.png" />
+    <None Include="wwwroot\montserrat_n4_default" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper" Version="1.50.5" />
     <PackageReference Include="MediatR" Version="4.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
@@ -18,6 +30,42 @@
   <ItemGroup>
     <ProjectReference Include="..\Walkies.Common\Walkies.Common.csproj" />
     <ProjectReference Include="..\Walkies.DatabaseOp\Walkies.DatabaseOperations.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\Images\anotherdog.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\Calypso-1.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\cutepupper.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\Dog.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\DoggoLogo.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\doggyboi.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\Logo.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\programs_landing_header.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\pupper.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\Salt-Lake-County.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\Images\TextLogo.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
