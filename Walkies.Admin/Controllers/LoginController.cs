@@ -74,11 +74,7 @@ namespace Walkies.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Create(Guid shelterId)
         {
-            ViewBag.UserAccounts = await _shelterRepo.GetAll();
-            if (shelterId.Equals(Guid.Empty))
                 return View(new AccountUser());
-            else
-                return View(await _shelterRepo.GetById(shelterId));
         }
 
 
