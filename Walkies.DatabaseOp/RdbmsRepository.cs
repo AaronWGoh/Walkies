@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Walkies.Common
+namespace Walkies.DatabaseOperations
 {
     using System.Configuration;
     using System.Data;
@@ -12,7 +12,6 @@ namespace Walkies.Common
 
     using Dapper;
     using Walkies.Common;
-    using Walkies.DatabaseOperations;
 
     public class RdbmsRepository : Database, IRepository
     {

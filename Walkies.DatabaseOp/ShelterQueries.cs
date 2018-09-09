@@ -52,6 +52,15 @@ namespace Walkies.DatabaseOperations
                     where ShelterId = @ShelterId";
             }
         }
+
+        public string Delete
+        {
+            get
+            {
+                return @"delete from Shelter
+                    where ShelterId = @ShelterId";
+            }
+        }
     }
 
     public partial class Queries : IQueries

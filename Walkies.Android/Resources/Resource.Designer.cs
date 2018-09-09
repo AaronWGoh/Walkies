@@ -46,9 +46,8 @@ namespace Walkies.Android
 			
 			// aapt resource value: 0x7f050000
 			public const int myButton = 2131034112;
-
-
-            static Id()
+			
+			static Id()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}

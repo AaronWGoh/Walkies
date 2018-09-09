@@ -27,8 +27,8 @@ namespace Walkies.DatabaseOperations
         {
             get
             {
-                return @"insert into Dog (DogId, ShelterId, Name, Description, Street2, City, StateCode, Zip, Latitude, Longitude, Phone, Fax, Email)" +
-                    "       values (@ShelterId, @Name, @Street1, @Street2, @City, @StateCode, @Zip, @Latitude, @Longitude, @Phone, @Fax, @Email)";
+                return @"insert into Dog (DogId, ShelterId, Name, Description, Breed, AvailableDate, PrimaryImageFile, IsPublic)" +
+                    "       values (@DogId, @ShelterId, @Name, @Description, @Breed, @AvailableDate, @PrimaryImageFIle, @IsPublic)";
             }
         }
 
@@ -36,20 +36,25 @@ namespace Walkies.DatabaseOperations
         {
             get
             {
-                return @"update Shelter
+                return @"update Dog
                     set 
+                        ShelterId = @ShelterId,
                         Name = @Name,
-                        Street1 = @Street1,
-                        Street2 = @Street2,
-                        City = @City,
-                        StateCode = @StateCode,
-                        Zip = @Zip,
-                        Latitude = @Latitude,
-                        Longitude = @Longitude,
-                        Phone  @Phone,
-                        Fax = @Fax,
-                        Email = @Email
-                    where ShelterId = @ShelterId";
+                        Description = @Description,
+                        Breed = @Breed,
+                        AvailableDate = @AvailableDate,
+                        PrimaryImageFile = @PrimaryImageFile,
+                        IsPublic = @IsPublic
+                    where DogId = @DogId";
+            }
+        }
+
+        public string Delete
+        {
+            get
+            {
+                return @"delete from Dog
+                    where DogId = @DogId";
             }
         }
     }
