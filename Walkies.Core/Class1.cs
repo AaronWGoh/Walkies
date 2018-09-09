@@ -13,6 +13,16 @@ namespace Walkies.Cross
             return true;
         }
 
+        public static DogProfile[] UpdateProfiles()
+        {
+
+
+            return new DogProfile[0];
+
+        }
+
+
+
 
     }
 }

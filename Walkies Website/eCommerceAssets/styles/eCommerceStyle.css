@@ -1,16 +1,23 @@
 @charset "utf-8";
 /* Global Styles */
 a:hover {
-	color: rgba(255,255,255,1.00);
+	color: rgba(0,0,0,1.00);
 }
-#home_first h2 a {
-	color: rgba(255,255,255,1.00);
+#content footer a {
+	text-decoration: none;
+}
 
-}
-#home_second h2 a {
+#home_first h1 a {
 	color: rgba(255,255,255,1.00);
+	text-align: center;
+	text-decoration: none;
+	width: 0px;
 }
-#home_first h2 a:hover {
+#home_second h1 a {
+	color: rgba(255,255,255,1.00);
+	text-decoration: none;
+}
+#home_first h1 a:hover {
 	color: rgba(0,0,0,1.00);
 }
 
@@ -24,7 +31,7 @@ header {
 	font-style: normal;
 	font-weight: 400;
 }
-#home_second h2 a:hover {
+#home_second h1 a:hover {
 	color: rgba(0,0,0,1.00);
 }
 
@@ -57,13 +64,23 @@ header {
 /* Offer text banner*/
 #home_first {
 	font-family: 'Montserrat', sans-serif;
-	clear: both;
 	background-color: rgba(1,185,0,1.00);
 	color: rgba(255,255,255,1.00);
-	padding-left: 50px;
 	padding-top: 57px;
 	padding-bottom: 57px;
 	width: 45%;
+	text-align: center;
+	text-decoration: none
+}
+#home_first2 {
+	font-family: 'Montserrat', sans-serif;
+	background-color: rgba(1,185,0,1.00);
+	color: rgba(255,255,255,1.00);
+	padding-top: 57px;
+	padding-bottom: 57px;
+	width: 45%;
+	text-align: center;
+	text-decoration: none
 }
 
 #home_second {
@@ -73,15 +90,15 @@ header {
 	padding-top: 57px;
 	padding-bottom: 57px;
 	width: 45%;
-	text-align: right;
-	padding-right: 50px;
-	margin-top: -219px;
+	margin-top: -225px;
 	float: right;
+	text-align: center;
+	text-decoration: none;
 }
 #shelter {
 	font-family: 'Montserrat', sans-serif;
 	clear: both;
-	background-color: rgba(77,94,77,1.00);
+	background-color: rgba(90,180,0,1.00);
 	color: rgba(255,255,255,1.00);
 	padding-top: 4px;
 	padding-bottom: 70px;
@@ -92,7 +109,7 @@ header {
 #map {
 	font-family: 'Montserrat', sans-serif;
 	clear: both;
-	background-color: rgba(1,185,0,1.00);
+	background-color: rgba(133,255,132,1.00);
 	color: rgba(255,255,255,1.00);
 	padding-top: 4px;
 	padding-bottom: 70px;
@@ -129,8 +146,56 @@ header {
 	text-align: center;
 	background-color: rgba(112,112,112,1.00);
 	padding-top: 36px;
-	height: 310px;
+	height: 398px;
+	padding-bottom: 28px;
 }
+
+#content .sidebar_Profile {
+	font-family: 'Montserrat', sans-serif;
+	color: rgba(146,146,146,1.00);
+	float: right;
+	width: 94%;
+	padding-left: 3%;
+	padding-right: 3%;
+	text-align: center;
+	background-color: rgba(112,112,112,1.00);
+	padding-top: 36px;
+	height: 261px;
+	padding-bottom: 28px;
+}
+form .form-group #name {
+	text-align: center;
+	font-size: large;
+}
+form .form-group #name2 {
+	text-align: center;
+	font-size: large;
+}
+form .form-group #Email {
+	text-align: center;
+	font-size: large;
+}
+form .form-group #Phone {
+	text-align: center;
+	font-size: large;
+}
+form .form-group #password {
+	text-align: center;
+	font-size: large;
+}
+#menubar .menu h5 {
+	color: rgba(255,255,255,1.00);
+	font-size: large;
+}
+#home_first h2 a {
+}
+
+
+
+
+
+
+
 /* main content of the site */
 #content .mainContent {
 	float: left;
@@ -205,7 +270,7 @@ header {
 	position: relative;
 	top: -48px;
 	width: 84%;
-	background-color: rgba(0,211,255,1.00);
+	background-color: rgba(23,139,0,1.00);
 	height: 35px;
 	color: rgba(255,255,255,1.00);
 	border-style: none;
@@ -240,14 +305,13 @@ header {
 #mainWrapper footer {
 	clear: both;
 	overflow: auto;
-	background-color: rgba(0,211,255,1.00);
 	font-family: source-sans-pro, sans-serif;
 	font-style: normal;
 	font-weight: 200;
 	line-height: 1.8;
 	padding-top: 22px;
 	padding-left: 22px;
-	text-align: center;
+	text-align: right;
 	padding-bottom: 22px;
 	padding-right: 22px;
 }
@@ -282,7 +346,6 @@ footer div a {
 }
 /* Menu headings in sidebar */
 #menubar .menu h2 {
-	font-size: 14px;
 	color: rgba(255,255,255,1.00);
 	text-align: center;
 }
@@ -300,6 +363,10 @@ footer div a {
 footer .footerlinks {
 	margin-top: -15px;
 }
+#mainWrapper footer a {
+	text-decoration: none;
+}
+
 
 /* Media query for tablets */
 @media screen and (max-width:700px) {
@@ -436,7 +503,6 @@ footer .footerlinks p {
 #mainWrapper header #headerLinks {
 	width: 100%;
 	text-align: center;
-	background-color: rgba(190,190,190,1.00);
 	padding-bottom: 21px;
 }
 /* Logo placeholder*/
@@ -498,11 +564,19 @@ header #headerLinks a {
 	width: 100%;
 	padding-left: 0px;
 }
+
+#home_second{
+	margin-top: -244px;
+	height: 130px;
+}
+#navbar ul{
+		font-size: 12px;
+}
 }
 #navbar {
 	font-family: 'Montserrat', sans-serif;
 	color: rgba(255,255,255,1);
-	background-color: rgba(0,211,255,1.00);
+	background-color: rgba(0,120,0,1.00);
 	text-decoration: none;
 	text-align: center;
 }
@@ -534,4 +608,22 @@ header #headerLinks a {
 }
 #image_logo{
 	text-align: center;
+}
+
+.google-maps {
+        position: relative;
+        padding-bottom: 75%;
+        height: 0;
+        overflow: hidden;
+    }
+.google-maps iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+    }
+#support{
+	font-family: 'Montserrat', sans-serif;
+	
 }
