@@ -37,7 +37,7 @@ namespace Walkies.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(AccountUser accountUser)
         {
-            AccountUser acco = await _accountUserRepo.GetUnlockedAccountsByEmail(accountUser);
+            AccountUser acco = await _accountUserRepo.GetByEmail(accountUser);
             if (acco != null)
             {
                 if (passwordHash.DoesPasswordMatch(acco.PasswordHash, acco.LoginEmail))

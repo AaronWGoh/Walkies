@@ -68,5 +68,6 @@
     <None Include="Script4.sql" />
     <None Include="Script5.sql" />
     <None Include="Script6.sql" />
+    <None Include="Script7.sql" />
   </ItemGroup>
 </Project>

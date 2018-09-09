@@ -22,17 +22,19 @@ namespace Walkies.Web.Controllers
         private IConfiguration _config;
         private IMediator _mediatr;
 
-        private AccountUserRepository _shelterRepo;
+        private AccountUserRepository _accountUserRepo;
+        private UserTypeRepository _userTypeRepo;
 
         private PasswordHash passhash = new PasswordHash();
 
 
-        public AccountController(IConfiguration config, AccountUserRepository shelterRepo, IMediator mediatr)
+        public AccountController(IConfiguration config, AccountUserRepository accountUserRepo, UserTypeRepository userTypeRepo, IMediator mediatr)
         {
             _config = config;
             _mediatr = mediatr;
 
-            _shelterRepo = shelterRepo;
+            _accountUserRepo = accountUserRepo;
+            _userTypeRepo = userTypeRepo;
         }
 
 
@@ -40,38 +42,35 @@ namespace Walkies.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Login(Guid shelterId)
         {
-            ViewBag.UserAccounts = await _shelterRepo.GetAll();
+            ViewBag.UserAccounts = await _accountUserRepo.GetAll();
+            ViewBag.userTypes = await _userTypeRepo.GetAll();
             if (shelterId.Equals(Guid.Empty))
                 return View(new AccountUser());
             else
-                return View(await _shelterRepo.GetById(shelterId));
+                return View(await _accountUserRepo.GetById(shelterId));
         }
 
 
         [Route("/Account/Login")]
         [HttpPost]
-        public async Task<IActionResult> Login(AccountUser accountUser, string submitAction)
+        public async Task<IActionResult> Login(AccountUser accountUser)
         {
             //if (submitAction.Equals("Delete Account"))
             //return RedirectToAction("Delete", new { AccountUserId = accountUser.AccountUserId });
-            if (submitAction.Equals("Login"))
-            {
-                AccountUser acco = await _shelterRepo.GetUnlockedAccountsByEmail(accountUser);
+                AccountUser acco = await _accountUserRepo.GetByEmail(accountUser);
                 if (acco != null)
                 {
-                    if (passhash.DoesPasswordMatch(acco.PasswordHash, acco.LoginEmail))
+                    if (passhash.DoesPasswordMatch(acco.PasswordHash, accountUser.PasswordHash))
                     {
                         //Success
                         PasswordHash.userauth = acco;
-                        return RedirectToAction("Login", "Account");
+                        return RedirectToAction("Index", "Shelter");
                     }
                     else
                     {
                         return RedirectToAction("Login", "Account");
                     }
                 }
-
-            }
             return RedirectToAction("Login", "Account");
         }
 
@@ -80,6 +79,9 @@ namespace Walkies.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Register(Guid shelterId)
         {
+            ViewBag.UserAccounts = await _accountUserRepo.GetAll();
+            ViewBag.userTypes = await _userTypeRepo.GetAll();
+
             return View(new AccountUser());
         }
 
@@ -109,19 +111,22 @@ namespace Walkies.Web.Controllers
                     await _mediatr.Send(addCmd);
                 }
                 else
-                    await _shelterRepo.Update(shelter);
+                    await _accountUserRepo.Update(shelter);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Login");
             }
             else
-                return RedirectToAction("Index");
+                return RedirectToAction("Login");
 
         }
 
 
         public async Task<IActionResult> Index()
         {
-            IEnumerable<AccountUser> accountUsers = await _shelterRepo.GetAll();
+            IEnumerable<AccountUser> accountUsers = await _accountUserRepo.GetAll();
+            ViewBag.userTypes = await _userTypeRepo.GetAll();
+            ViewBag.userTypes = await _userTypeRepo.GetAll();
+
             return View(accountUsers);
         }
 
