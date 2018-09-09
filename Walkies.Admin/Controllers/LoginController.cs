@@ -47,20 +47,20 @@ namespace Walkies.Admin.Controllers
 
         [Route("/Login/Edit")]
         [HttpPost]
-        public async Task<IActionResult> Edit(AccountUser accountUser, string submitAction)
+        public async Task<IActionResult> Edit(AccountUser acco, string submitAction)
         {
               //if (submitAction.Equals("Delete Account"))
                 //return RedirectToAction("Delete", new { AccountUserId = accountUser.AccountUserId });
               if(submitAction.Equals("Login"))
             {
-                AccountUser acco = await _accountRepo.GetUnlockedAccountsByEmail(accountUser);
+                AccountUser account = await _accountRepo.GetByEmail(acco);
                 if(acco != null)
                 {
-                    if (DoesPasswordMatch(acco.PasswordHash, acco.LoginEmail))
+                    if (DoesPasswordMatch(account.PasswordHash, acco.PasswordHash))
                     {
                         //Success
                         userAuth = acco;
-                        return RedirectToRoute("/Login/Index");
+                        return RedirectToAction("Index", "Login");
                     }
                     else
                     {
@@ -69,7 +69,7 @@ namespace Walkies.Admin.Controllers
                 }
 
             }
-            return RedirectToRoute("/Login/Edit");
+            return RedirectToRoute("/Login/Index");
         }
 
 
@@ -115,7 +115,7 @@ namespace Walkies.Admin.Controllers
 
         }
 
-
+        [Route("/Login/Index")]
         public async Task<IActionResult> Index()
         {
             IEnumerable<AccountUser> accountUsers = await _accountRepo.GetAll();
