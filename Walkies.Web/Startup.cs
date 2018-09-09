@@ -56,6 +56,7 @@ namespace Walkies.Web
               );
 
             services.AddSingleton(typeof(ICombProvider), new PostgreSqlCombProvider(new UnixDateTimeStrategy()));
+            services.AddMediatR(typeof(Walkies.DatabaseOperations.Handlers.AccountUserHandler));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

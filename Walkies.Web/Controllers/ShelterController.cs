@@ -29,7 +29,7 @@ namespace Walkies.Web.Controllers
         public IActionResult Index()
         {
             if (PasswordHash.userauth == null)
-                return RedirectToRoute("/Account/Login");
+                return RedirectToAction("Login, Account");
             return View();
         }
 

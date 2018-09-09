@@ -63,16 +63,16 @@ namespace Walkies.Web.Controllers
                     {
                         //Success
                         PasswordHash.userauth = acco;
-                        return RedirectToRoute("/Account/Login");
+                        return RedirectToAction("Login", "Account");
                     }
                     else
                     {
-                        return RedirectToRoute("/Account/Login");
+                        return RedirectToAction("Login", "Account");
                     }
                 }
 
             }
-            return RedirectToRoute("/Account/Login");
+            return RedirectToAction("Login", "Account");
         }
 
 

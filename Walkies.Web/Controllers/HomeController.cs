@@ -45,7 +45,7 @@ namespace Walkies.Web.Controllers
                     return RedirectToRoute("/Shelter/Index");
                 }
             }
-            return RedirectToRoute("/Account/Login");
+            return RedirectToAction("Login", "Account");
         }
 
         public IActionResult About()

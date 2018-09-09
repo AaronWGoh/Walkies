@@ -15,19 +15,23 @@ namespace Walkies.Web.Controllers
         private IConfiguration _config;
         private ShelterRepository _shelterRepo;
         private DogRepository _dogRepo;
+        private UserTypeRepository _userTypeRepo;
 
-        public MapController(IConfiguration config, ShelterRepository shelterRepo, DogRepository dogRepo)
+        public MapController(IConfiguration config, ShelterRepository shelterRepo, DogRepository dogRepo, UserTypeRepository userTypeRepo)
         {
             _config = config;
             _shelterRepo = shelterRepo;
             _dogRepo = dogRepo;
+            _userTypeRepo = userTypeRepo;
         }
         public async Task<IActionResult> Index()
         {
             if (PasswordHash.userauth == null)
-                return RedirectToRoute("/Account/Login");
+                return RedirectToAction("Login", "Account");
+
             IEnumerable<Shelter> shelters = await _shelterRepo.GetAll();
             IEnumerable<Dog> dogs = await _dogRepo.GetAll();
+            ViewBag.userTypes = await _userTypeRepo.GetAll();
 
             DisplayData displayData = new DisplayData
             {
@@ -44,6 +48,7 @@ namespace Walkies.Web.Controllers
         {
             IEnumerable<Shelter> shelters = await _shelterRepo.GetAll();
             IEnumerable<Dog> dogs = await _dogRepo.GetAll();
+            ViewBag.userTypes = await _userTypeRepo.GetAll();
 
             DisplayData displayData = new DisplayData
             {
