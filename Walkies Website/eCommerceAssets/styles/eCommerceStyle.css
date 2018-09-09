@@ -7,7 +7,7 @@ a:hover {
 	color: rgba(255,255,255,1.00);
 	text-align: center;
 	text-decoration: none;
-
+	width: 0px;
 }
 #home_second h1 a {
 	color: rgba(255,255,255,1.00);
@@ -60,14 +60,23 @@ header {
 /* Offer text banner*/
 #home_first {
 	font-family: 'Montserrat', sans-serif;
-	clear: both;
 	background-color: rgba(1,185,0,1.00);
 	color: rgba(255,255,255,1.00);
-	padding-left: 50px;
 	padding-top: 57px;
 	padding-bottom: 57px;
 	width: 45%;
 	text-align: center;
+	text-decoration: none
+}
+#home_first2 {
+	font-family: 'Montserrat', sans-serif;
+	background-color: rgba(1,185,0,1.00);
+	color: rgba(255,255,255,1.00);
+	padding-top: 57px;
+	padding-bottom: 57px;
+	width: 45%;
+	text-align: center;
+	text-decoration: none
 }
 
 #home_second {
@@ -77,10 +86,10 @@ header {
 	padding-top: 57px;
 	padding-bottom: 57px;
 	width: 45%;
-	text-align: center;
-	padding-right: 50px;
 	margin-top: -225px;
 	float: right;
+	text-align: center;
+	text-decoration: none;
 }
 #shelter {
 	font-family: 'Montserrat', sans-serif;
@@ -133,26 +142,32 @@ header {
 	text-align: center;
 	background-color: rgba(112,112,112,1.00);
 	padding-top: 36px;
-	height: 310px;
+	height: 380px;
 	padding-bottom: 28px;
 }
 form .form-group #name {
 	text-align: center;
+	font-size: large;
 }
 form .form-group #name2 {
 	text-align: center;
+	font-size: large;
 }
 form .form-group #Email {
 	text-align: center;
+	font-size: large;
 }
 form .form-group #Phone {
 	text-align: center;
+	font-size: large;
 }
 form .form-group #password {
 	text-align: center;
+	font-size: large;
 }
 #menubar .menu h5 {
 	color: rgba(255,255,255,1.00);
+	font-size: large;
 }
 #home_first h2 a {
 }
@@ -314,7 +329,6 @@ footer div a {
 }
 /* Menu headings in sidebar */
 #menubar .menu h2 {
-	font-size: 14px;
 	color: rgba(255,255,255,1.00);
 	text-align: center;
 }
