@@ -54,13 +54,10 @@ namespace Walkies_Android
 			public const int editText2 = 2130968579;
 			
 			// aapt resource value: 0x7f040008
-			public const int gridView1 = 2130968584;
+			public const int gridLayout1 = 2130968584;
 			
 			// aapt resource value: 0x7f040004
 			public const int linearLayout1 = 2130968580;
-			
-			// aapt resource value: 0x7f040009
-			public const int scrollView1 = 2130968585;
 			
 			// aapt resource value: 0x7f040006
 			public const int switch1 = 2130968582;

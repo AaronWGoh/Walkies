@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Walkies.Cross;
 
 namespace Walkies_Android
 {
@@ -18,7 +19,10 @@ namespace Walkies_Android
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            foreach(object a in DataBaseGrabber.doglist)
+            {
+                
+            }
             
         }
     }
