@@ -532,3 +532,6 @@ header #headerLinks a {
 	color: rgba(255,255,255,1.00);
 	text-align: left;
 }
+#image_logo{
+	text-align: center;
+}
