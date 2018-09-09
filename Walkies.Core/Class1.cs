@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Walkies.Common
+namespace Walkies.Cross
 {
     public static class DataBaseGrabber
     {
