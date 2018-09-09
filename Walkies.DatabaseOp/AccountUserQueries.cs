@@ -35,8 +35,8 @@ namespace Walkies.DatabaseOperations
         {
             get
             {
-                return @"insert into AccountUser (AccountUserId, FirstName, LastName, LoginEmail, RecoveryPhone, PasswordHash, CanLogin, IsLockedDateTime, ResetToken, ResetTokenExpiration)" +
-                    "       values (@AccountUserId, @FirstName, @LastName, @LoginEmail, @RecoveryPhone, @PasswordHash, @CanLogin, @IsLockedDateTime, @ResetToken, @ResetTokenExpiration)";
+                return @"insert into AccountUser (AccountUserId, UserTypeCode, FirstName, LastName, LoginEmail, RecoveryPhone, PasswordHash, CanLogin, IsLockedDateTime, ResetToken, ResetTokenExpiration)" +
+                    "       values (@AccountUserId, @UserTypeCode, @FirstName, @LastName, @LoginEmail, @RecoveryPhone, @PasswordHash, @CanLogin, @IsLockedDateTime, @ResetToken, @ResetTokenExpiration)";
             }
         }
 
@@ -47,6 +47,7 @@ namespace Walkies.DatabaseOperations
                 return @"update AccountUser
                     set 
                     AccountUserId = @AccountUserId,
+                    UserTypeCode = @UserTypeCode,
                     FirstName = @FirstName,
                     LastName = @LastName,
                     LoginEmail = @LoginEmail,
