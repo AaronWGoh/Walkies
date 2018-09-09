@@ -20,7 +20,7 @@ namespace Walkies.Admin.Controllers
         private IConfiguration _config;
         private IMediator _mediatr;
 
-        private AccountUserRepository _shelterRepo;
+        private AccountUserRepository _accountRepo;
 
         private AccountUser userAuth = null;
 
@@ -29,19 +29,19 @@ namespace Walkies.Admin.Controllers
             _config = config;
             _mediatr = mediatr;
 
-            _shelterRepo = shelterRepo;
+            _accountRepo = shelterRepo;
         }
 
 
         [Route("/Login/Edit")]
         [HttpGet]
-        public async Task<IActionResult> Edit(Guid shelterId)
+        public async Task<IActionResult> Edit(Guid accountId)
         {
-            ViewBag.UserAccounts = await _shelterRepo.GetAll();
-            if (shelterId.Equals(Guid.Empty))
+            ViewBag.UserAccounts = await _accountRepo.GetAll();
+            if (accountId.Equals(Guid.Empty))
                 return View(new AccountUser());
             else
-                return View(await _shelterRepo.GetById(shelterId));
+                return View(await _accountRepo.GetById(accountId));
         }
 
 
@@ -53,7 +53,7 @@ namespace Walkies.Admin.Controllers
                 //return RedirectToAction("Delete", new { AccountUserId = accountUser.AccountUserId });
               if(submitAction.Equals("Login"))
             {
-                AccountUser acco = await _shelterRepo.GetUnlockedAccountsByEmail(accountUser);
+                AccountUser acco = await _accountRepo.GetUnlockedAccountsByEmail(accountUser);
                 if(acco != null)
                 {
                     if (DoesPasswordMatch(acco.PasswordHash, acco.LoginEmail))
@@ -106,7 +106,7 @@ namespace Walkies.Admin.Controllers
                     await _mediatr.Send(addCmd);
                 }
                 else
-                    await _shelterRepo.Update(shelter);
+                    await _accountRepo.Update(shelter);
 
                 return RedirectToAction("Index");
             }
@@ -118,7 +118,7 @@ namespace Walkies.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            IEnumerable<AccountUser> accountUsers = await _shelterRepo.GetAll();
+            IEnumerable<AccountUser> accountUsers = await _accountRepo.GetAll();
             return View(accountUsers);
         }
 
@@ -138,6 +138,12 @@ namespace Walkies.Admin.Controllers
         public AccountUser GetProfile()
         {
             return userAuth;
+        }
+
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await _accountRepo.Delete(id);
+            return RedirectToAction("Index");
         }
 
         private bool DoesPasswordMatch(string hashedPwdFromDatabase, string userEnteredPassword)

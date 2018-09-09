@@ -1,102 +1,74 @@
 ﻿@model IEnumerable<Walkies.Common.Models.AccountUser>
-
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Account Management - DoggoWalkies.org";
 }
 
-<h2>Index</h2>
+@section Head {
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+}
 
-<p>
-    <a asp-action="Create">Sign Up</a>
-    <a asp-action="Edit">Login</a>
-</p>
-<table class="table">
+@section Scripts {
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $("#account-table").DataTable({
+                responsive: true
+            });
+        });
+
+        function confirmDelete(elem, accountId) {
+            if (confirm("Are you sure you want to remove this account?")) {
+                window.location.href = "@Url.Content("~/Login/?id=")" + accountId;
+            }
+        }
+    </script>
+}
+
+<br />
+<h1 class='page-title'>Accounts</h1>
+<table id="account-table" class="display" cellspacing="0">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AccountUserId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserTypeCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LoginEmail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RecoveryPhone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PasswordHash)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CanLogin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsLockedDateTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ResetToken)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ResetTokenExpiration)
-            </th>
-            <th></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Can Login</th>
+            <th>IsLockedDateTime</th>
+            <th>Login Email</th>
+            <th>Recovery Phone</th>
+            <th>Reset Token</th>
+            <th>Reset Token Expiration</th>
+            <th>User Type Code</th>
+            <th>Edit & Delete</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AccountUserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserTypeCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LoginEmail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecoveryPhone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PasswordHash)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CanLogin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsLockedDateTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ResetToken)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ResetTokenExpiration)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Create", "Create", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+
+        @foreach (var Items in Model)
+        {
+            <tr>
+                <td>@Items.FirstName</td>
+                <td>@Items.LastName</td>
+                <td>@Items.CanLogin</td>
+                <td>@Items.IsLockedDateTime</td>
+                <td>@Items.LoginEmail</td>
+                <td>@Items.RecoveryPhone</td>
+                <td>@Items.ResetToken</td>
+                <td>@Items.ResetTokenExpiration</td>
+                <td>@Items.UserTypeCode</td>
+                <td>
+                    <button class="btn btn-info" onclick="window.location.href='@Url.Content("~/")Login/Edit/?accountId=@Items.AccountUserId'"><i class="glyphicon glyphicon-edit"></i></button>
+                    <button class="btn btn-danger deleteButton" onclick="confirmDelete(this, '@Items.AccountUserId')"><i class="glyphicon glyphicon-trash"></i></button>
+                </td>
+            </tr>
+        }
+
     </tbody>
 </table>
+
+<div class="form-group">
+    <div style="display: inline-block">
+        <a class="btn btn-primary" href="@Url.Content("~/")Login/Create/?accountId=@ViewBag.accountId"><i class="glyphicon glyphicon-plus"></i> Add Another Account</a>
+        <a class="btn btn-danger deleteButton" href="@Url.Content("~/")"><i class="glyphicon glyphicon-home"></i> Return to Home Page </a>
+    </div>
+</div>
+

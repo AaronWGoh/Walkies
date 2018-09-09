@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Images\banner1.svg" />
+    <None Include="wwwroot\Images\banner2.svg" />
+    <None Include="wwwroot\Images\banner3.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt-Official" Version="0.1.109" />
     <PackageReference Include="Dapper" Version="1.50.5" />
     <PackageReference Include="MediatR" Version="4.0.0" />
