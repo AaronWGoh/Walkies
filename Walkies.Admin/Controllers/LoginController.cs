@@ -42,7 +42,7 @@ namespace Walkies.Admin.Controllers
                 return View(await _shelterRepo.GetById(shelterId));
         }
 
-        [Route("Login/Attempt")]
+        [Route("Login/Edit")]
         [HttpGet]
         public async Task<IActionResult> Login(AccountUser accountUser, string submitAction)
         {
@@ -69,8 +69,7 @@ namespace Walkies.Admin.Controllers
         }
 
 
-        [Route("/Account/Add")]
-        [Route("/Account/Edit")]
+        [Route("/Account/Create")]
         [HttpPost]
         public async Task<IActionResult> Edit(AccountUser shelter, String submitAction)
         {

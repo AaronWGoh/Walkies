@@ -14,7 +14,7 @@ using Walkies.DatabaseOperations.Handlers;
 
 namespace Walkies.Admin.Controllers
 {
-    [Authorize(Roles = "Shelter")]
+    //[Authorize(Roles = "Shelter")]
     public class ShelterController : Controller
     {
         private IConfiguration _config;
