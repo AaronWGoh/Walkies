@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using System.Security;
 using Walkies.DatabaseOperations;
 using BCrypt.Net;
 
 namespace Walkies.Admin.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         public IActionResult Index()

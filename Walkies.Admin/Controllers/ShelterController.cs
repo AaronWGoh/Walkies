@@ -6,11 +6,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Authorization;
 using Walkies.Common.Models;
 using Walkies.DatabaseOperations;
 
 namespace Walkies.Admin.Controllers
 {
+    [Authorize(Roles = "Shelter")]
     public class ShelterController : Controller
     {
         private IConfiguration _config;
