@@ -59,45 +59,56 @@
                         </h5>
                         <hr>
                         <h2>Sign Up to Walk</h2>
-                        <form>
+                        <form method="post" class="form-horizontal">
                             <div class="form-group">
-                                <label for="name1"></label>
-                                <input type="name" class="form-control" id="name" aria-describedby="name" placeholder="First Name">
-                                <small id="name1" class="form-text text-muted"></small>
+                                <label asp-for="AccountUser.FirstName" class="control-label col-md-2"></label>
+                                <div class="col-md-4">
+                                    <input asp-for="AccountUser.FirstName" class="form-control" />
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="name2"></label>
-                                <input type="name2" class="form-control" id="name2" aria-describedby="name" placeholder="Last Name">
-                                <small id="name_last" class="form-text text-muted"></small>
+                                <label asp-for="AccountUser.LastName" class="control-label col-md-2"></label>
+                                <div class="col-md-4">
+                                    <input asp-for="AccountUser.LastName" class="form-control" />
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="Email"></label>
-                                <input type="email" class="form-control" id="Email" aria-describedby="email" placeholder="Email">
-                                <small id="email" class="form-text text-muted"></small>
+                                <label class="control-label col-md-2">User Type</label>
+                                <div class="col-md-4">
+                                    <select asp-for="AccountUser.UserTypeCode" class="form-control" required asp-items="@(new SelectList(ViewBag.userTypes, "UserTypeCode", "Name"))"></select>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="Phone"></label>
-                                <input type="phone" class="form-control" id="Phone" aria-describedby="phone" placeholder="Phone">
-                                <small id="phone" class="form-text text-muted"></small>
+                                <label asp-for="AccountUser.LoginEmail" class="control-label col-md-2"></label>
+                                <div class="col-md-4">
+                                    <input asp-for="AccountUser.LoginEmail" class="form-control" required />
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="Password"></label>
-                                <input type="password" class="form-control" id="password" aria-describedby="password" placeholder="Password">
-                                <small id="password1" class="form-text text-muted"></small>
+                                <label asp-for="AccountUser.Password" class="control-label col-md-2"></label>
+                                <div class="col-md-4">
+                                    <input asp-for="AccountUser.Password" class="form-control" />
+                                </div>
                             </div>
-                            <p></p>
-                            <a href="@Url.Content("~/Home/Index")">
-                                <button type="submit" class="Submit">Submit</button>
-                            </a>
+                            <div class="form-group">
+                                <label asp-for="AccountUser.RecoveryPhone" class="control-label col-md-2"></label>
+                                <div class="col-md-4">
+                                    <input type="tel" asp-for="AccountUser.RecoveryPhone" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <br><br />
+                                <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-plus"></i> Sign up</button>
+                            </div>
                         </form>
 
 
                         <ul>
                             <!-- List of links under menuset 1 -->
                             <!--<li><a href="#" title="Link">Link 1</a></li>
-                            <li><a href="#" title="Link">Link 2</a></li>
-                            <li><a href="#" title="Link">Link 3</a></li>
-                            <li class="notimp"><!-- notimp class is applied to remove this link from the tablet and phone views <a href="#"  title="Link">Link 4</a></li>-->
+        <li><a href="#" title="Link">Link 2</a></li>
+        <li><a href="#" title="Link">Link 3</a></li>
+        <li class="notimp"><!-- notimp class is applied to remove this link from the tablet and phone views <a href="#"  title="Link">Link 4</a></li>-->
                         </ul>
                     </nav>
 
