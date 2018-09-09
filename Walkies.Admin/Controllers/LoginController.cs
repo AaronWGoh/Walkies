@@ -51,7 +51,7 @@ namespace Walkies.Admin.Controllers
                 //return RedirectToAction("Delete", new { AccountUserId = accountUser.AccountUserId });
               if(submitAction.Equals("Login"))
             {
-                AccountUser acco = await _shelterRepo.GetByUnlockedandEmail(accountUser);
+                AccountUser acco = await _shelterRepo.GetUnlockedAccountsByEmail(accountUser);
                 if(acco != null)
                 {
                     if (DoesPasswordMatch(acco.PasswordHash, acco.LoginEmail))

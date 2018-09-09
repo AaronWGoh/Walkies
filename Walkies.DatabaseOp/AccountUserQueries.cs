@@ -23,7 +23,7 @@ namespace Walkies.DatabaseOperations
             }
         }
 
-        public string GetByUnlockedandEmail
+        public string GetUnlockedAccountsByEmail
         {
             get
             {

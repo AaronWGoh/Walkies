@@ -16,11 +16,13 @@ namespace Walkies.Web.Controllers
         private IConfiguration _config;
 
         private ShelterRepository _shelterRepo;
+        private DogRepository _dogRepo;
 
-        public ShelterController(IConfiguration config, ShelterRepository shelterRepo)
+        public ShelterController(IConfiguration config, ShelterRepository shelterRepo, DogRepository dogRepo)
         {
             _config = config;
             _shelterRepo = shelterRepo;
+            _dogRepo = dogRepo;
         }
 
         public IActionResult Index()
@@ -28,9 +30,10 @@ namespace Walkies.Web.Controllers
             return View();
         }
 
-        public IActionResult Doggos()
+        public async Task<IActionResult> Doggos()
         {
-            return View();
+            IEnumerable<Dog> dogs = await _dogRepo.GetAll();
+            return View(dogs);
         }
     }
 }

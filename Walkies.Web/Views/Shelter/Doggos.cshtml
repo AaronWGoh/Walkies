@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Doggos - Walkies";
 }
+@model Walkies.Common.Models.AccountUser
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -26,6 +28,7 @@
             <!-- The offer section displays a banner text for promotions -->
             <h2>Dogs</h2>
         </section>
+
         <div id="navbar">
             <ul>
                 <li><a href="@Url.Content("~/Home/Index")">Home</a></li>
@@ -48,15 +51,15 @@
                         </h5>
                         <hr>
                         <h2>Sign Up to Walk</h2>
-                        <form>
+                        <form method="post">
                             <div class="form-group">
                                 <label for="name1"></label>
-                                <input type="name" class="form-control" id="name" aria-describedby="name" placeholder="First Name">
+                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="First Name">
                                 <small id="name1" class="form-text text-muted"></small>
                             </div>
                             <div class="form-group">
                                 <label for="name2"></label>
-                                <input type="name2" class="form-control" id="name2" aria-describedby="name" placeholder="Last Name">
+                                <input type="text" class="form-control" id="name2" aria-describedby="name" placeholder="Last Name">
                                 <small id="name_last" class="form-text text-muted"></small>
                             </div>
                             <div class="form-group">
@@ -66,7 +69,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="Phone"></label>
-                                <input type="phone" class="form-control" id="Phone" aria-describedby="phone" placeholder="Phone">
+                                <input type="tel" class="form-control" id="Phone" aria-describedby="phone" placeholder="Phone">
                                 <small id="phone" class="form-text text-muted"></small>
                             </div>
                             <div class="form-group">
@@ -75,18 +78,8 @@
                                 <small id="password1" class="form-text text-muted"></small>
                             </div>
                             <p></p>
-                            <a href="@Url.Content("~/Home/Index")">
-                                <button type="submit" class="Submit">Submit</button>
-                            </a>
+                            <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-plus"></i> Sign Up</button>
                         </form>
-
-                        <ul>
-                            <!-- List of links under menuset 1 -->
-                            <!--<li><a href="#" title="Link">Link 1</a></li>
-                        <li><a href="#" title="Link">Link 2</a></li>
-                        <li><a href="#" title="Link">Link 3</a></li>
-                        <li class="notimp"><!-- notimp class is applied to remove this link from the tablet and phone views <a href="#"  title="Link">Link 4</a></li>-->
-                        </ul>
                     </nav>
 
                 </div>
@@ -120,19 +113,19 @@
         </div>
         <footer><a href="@Url.Content("~/Home/Help")">Help</a></footer>
         <!--<footer>
-      <!-- This is the footer with default 3 divs -->
+        <!-- This is the footer with default 3 divs -->
         <!--<div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam varius sem neque. Integer ornare.</p>
-      </div>
-      <div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam varius sem neque. Integer ornare.</p>
-      </div>
-      <div class="footerlinks">
-        <p><a href="#" title="Link">Link 1 </a></p>
-        <p><a href="#" title="Link">Link 2</a></p>
-        <p><a href="#" title="Link">Link 3</a></p>
-      </div>
-    </footer>-->
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam varius sem neque. Integer ornare.</p>
+          </div>
+          <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam varius sem neque. Integer ornare.</p>
+          </div>
+          <div class="footerlinks">
+            <p><a href="#" title="Link">Link 1 </a></p>
+            <p><a href="#" title="Link">Link 2</a></p>
+            <p><a href="#" title="Link">Link 3</a></p>
+          </div>
+        </footer>-->
     </div>
 </body>
 </html>
