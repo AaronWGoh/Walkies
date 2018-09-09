@@ -3,6 +3,10 @@
 a:hover {
 	color: rgba(0,0,0,1.00);
 }
+#content footer a {
+	text-decoration: none;
+}
+
 #home_first h1 a {
 	color: rgba(255,255,255,1.00);
 	text-align: center;
@@ -287,14 +291,13 @@ form .form-group #password {
 #mainWrapper footer {
 	clear: both;
 	overflow: auto;
-	background-color: rgba(0,211,255,1.00);
 	font-family: source-sans-pro, sans-serif;
 	font-style: normal;
 	font-weight: 200;
 	line-height: 1.8;
 	padding-top: 22px;
 	padding-left: 22px;
-	text-align: center;
+	text-align: right;
 	padding-bottom: 22px;
 	padding-right: 22px;
 }
@@ -346,6 +349,10 @@ footer div a {
 footer .footerlinks {
 	margin-top: -15px;
 }
+#mainWrapper footer a {
+	text-decoration: none;
+}
+
 
 /* Media query for tablets */
 @media screen and (max-width:700px) {
@@ -595,3 +602,6 @@ header #headerLinks a {
         width: 100% !important;
         height: 100% !important;
     }
+#support{
+	
+}
