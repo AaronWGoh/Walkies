@@ -1,101 +1,76 @@
 ﻿@model IEnumerable<Walkies.Common.Models.Shelter>
-
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Shelter - DoggoWalkies.org";
 }
 
-<h2>Index</h2>
+@section Head {
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+}
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+@section Scripts {
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $("#shelter-table").DataTable({
+                responsive: true
+            });
+        });
+
+        function confirmDelete(elem, shelterId) {
+            if (confirm("Are you sure you want to remove this schedule?")) {
+                window.location.href = @Url.Content("~/Shelter/") + "Delete/?shelterId=" + shelterId;
+            }
+        }
+    </script>
+}
+
+<br />
+<h1 class='page-title'>Shelters</h1>
+
+<table id="shelter-table" class="display" cellspacing="0">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ShelterId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Street1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Street2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StateCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Zip)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Latitude)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Longitude)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fax)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th></th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Fax</th>
+            <th>Street 1</th>
+            <th>Street 2</th>
+            <th>City</th>
+            <th>Zip</th>
+            <th>State</th>
+            <th>Edit & Delete</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShelterId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Street1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Street2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StateCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Zip)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Latitude)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Longitude)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fax)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+
+        @foreach (var Items in Model)
+        {
+            <tr>
+                <td>@Items.Name</td>
+                <td>@Items.Email</td>
+                <td>@Items.Phone</td>
+                <td>@Items.Fax</td>
+                <td>@Items.Street1</td>
+                <td>@Items.Street2</td>
+                <td>@Items.City</td>
+                <td>@Items.Zip</td>
+                <td>@Items.StateCode</td>
+
+                <td>
+                    <button class="btn btn-info" onclick="window.location.href='@Url.Content("~/")Shelter/Edit?shelterId=' + '@Items.ShelterId'"><i class="glyphicon glyphicon-edit"></i></button>
+                    <button class="btn btn-danger deleteButton" onclick="confirmDelete(this, '@Items.ShelterId')"><i class="glyphicon glyphicon-trash"></i></button>
+                </td>
+            </tr>
+        }
+
     </tbody>
 </table>
+
+<div class="form-group">
+    <div style="display: inline-block">
+        <a class="btn btn-primary" href="@Url.Content("~/")Shelter/Add"><i class="glyphicon glyphicon-plus"></i> Add New Shelter</a>
+        <a class="btn btn-danger deleteButton" href="@Url.Content("~/")"><i class="glyphicon glyphicon-home"></i> Return Back </a>
+    </div>
+</div>
+

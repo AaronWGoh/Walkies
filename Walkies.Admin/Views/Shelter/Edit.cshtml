@@ -12,7 +12,7 @@
 }
 
 <br />
-@{ if (Model == null)
+@{ if (Model.ShelterId.Equals(Guid.Empty))
     {
         <h2> Creating New Shelter </h2>
     }
@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">Name</label>
                     <div class="col-md-4">
-                        <input asp-for="Name" class="form-control">
+                        <input asp-for="Name" class="form-control" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -46,7 +46,7 @@
                 <div class="form-group">
                     <label asp-for="Phone" class="control-label col-md-2"></label>
                     <div class="col-md-4">
-                        <input asp-for="Phone" class="form-control" required maxlength="100" />
+                        <input asp-for="Phone" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -64,7 +64,7 @@
                 <div class="form-group">
                     <label asp-for="Street2" class="control-label col-md-2"></label>
                     <div class="col-md-4">
-                        <input asp-for="Street2" class="form-control" required maxlength="100" />
+                        <input asp-for="Street2" class="form-control" maxlength="100" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -141,14 +141,12 @@
                 <div class="form-group">
                     <br><br />
                     <button class="btn btn-primary" type="submit" name="submitAction" value="SaveAndReturn"><i class="glyphicon glyphicon-plus"></i> Save & Return to Shelter List</button>
+                    <button class="btn btn-primary" type="submit" name="submitAction" value="SaveAndAdd"><i class="glyphicon glyphicon-plus"></i> Save & Add New Unit</button>
+                    @if (Model.ShelterId != Guid.Empty)
                     {
-                        <button class="btn btn-primary" type="submit" name="submitAction" value="SaveAndAdd" onclick="window.location.href='@Url.Content("~/")/Shelter/Add'"><i class="glyphicon glyphicon-plus"></i> Save & Add New Unit</button>
-                        @if (Model.ShelterId != Guid.Empty)
-                        {
-                            <button class="btn btn-danger" type="submit" name="submitAction" value="Delete"><i class="glyphicon glyphicon-trash"></i> Delete Shelter</button>
-                        }
+                        <button class="btn btn-danger" type="submit" name="submitAction" value="Delete" onclick="window.location.href='@Url.Content("~/")/Shelter/Delete?shelterId=@Model.ShelterId'"><i class="glyphicon glyphicon-trash"></i> Delete Shelter</button>
                     }
-                    <button class="btn btn-danger deleteButton" name="submitAction" value="Cancel"><i class="glyphicon glyphicon-trash"></i> Cancel and Return to List of Shelters</button>
+                    <button class="btn btn-danger deleteButton" name="submitAction" value="Cancel" onclick="window.location.href='@Url.Content("~/")/Shelter/'"><i class="glyphicon glyphicon-trash"></i> Cancel and Return to List of Shelters</button>
                 </div>
             </form>
         </div>

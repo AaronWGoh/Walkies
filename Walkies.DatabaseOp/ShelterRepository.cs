@@ -26,13 +26,13 @@ namespace Walkies.DatabaseOperations
 
         public async Task<Shelter> Insert(Shelter shelter)
         {
-            var result = await QueryAsync<Shelter>(_qs.Shelter.Insert, new { shelter });
+            var result = await QueryAsync<Shelter>(_qs.Shelter.Insert, shelter );
             return result.FirstOrDefault();
         }
 
         public async Task<Shelter> Update(Shelter shelter)
         {
-            var result = await QueryAsync<Shelter>(_qs.Shelter.Update, new { shelter });
+            var result = await QueryAsync<Shelter>(_qs.Shelter.Update, shelter);
             return result.FirstOrDefault();
         }
 

@@ -29,21 +29,24 @@ namespace Walkies.Admin.Controllers
             return View(shelters);
         }
 
+        [Route("/Shelter/Add")]
         [HttpGet]
-        public async Task<IActionResult> Edit(Guid id)
+        public async Task<IActionResult> Edit(Guid shelterId)
         {
-            if (id == null)
-                return View();
+            if (shelterId.Equals(Guid.Empty))
+                return View(new Shelter());
             else
-                return View(await _shelterRepo.GetById(id));
+                return View(await _shelterRepo.GetById(shelterId));
         }
 
-        [HttpPut]
+        [Route("/Shelter/Add")]
+        [HttpPost]
         public async Task<IActionResult> Edit(Shelter shelter, String submitAction)
         {
+            Shelter newShelter = await _shelterRepo.GetById(shelter.ShelterId);
             if (submitAction.Equals("SaveAndReturn"))
             {
-                if (await _shelterRepo.GetById(shelter.ShelterId) == null)
+                if (newShelter == null)
                     await _shelterRepo.Insert(shelter);
                 else
                     await _shelterRepo.Update(shelter);
@@ -52,7 +55,7 @@ namespace Walkies.Admin.Controllers
             }
             else if (submitAction.Equals("SaveAndAdd"))
             {
-                if (await _shelterRepo.GetById(shelter.ShelterId) == null)
+                if (newShelter == null)
                     await _shelterRepo.Insert(shelter);
                 else
                     await _shelterRepo.Update(shelter);
@@ -60,15 +63,15 @@ namespace Walkies.Admin.Controllers
                 return RedirectToAction("Edit");
             }
             else if (submitAction.Equals("Delete"))
-                return RedirectToAction("Delete", new { id = shelter.ShelterId });
+                return RedirectToAction("Delete", new { shelterId = shelter.ShelterId });
             else
                 return RedirectToAction("Index");
 
         }
 
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid shelterId)
         {
-            await _shelterRepo.Delete(id);
+            await _shelterRepo.Delete(shelterId);
             return RedirectToAction("Index");
         }
 
