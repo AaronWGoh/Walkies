@@ -30,50 +30,63 @@ namespace Walkies.Admin.Controllers
             _shelterRepo = shelterRepo;
         }
 
-        [Route("/AccountUser/Add")]
-        [Route("/AccountUser/Edit")]
+
+        [Route("/Login/Edit")]
         [HttpGet]
-        public async Task<IActionResult> Add(Guid shelterId)
+        public async Task<IActionResult> Edit(Guid shelterId)
         {
-            ViewBag.AccountUser = await _shelterRepo.GetAll();
+            ViewBag.UserAccounts = await _shelterRepo.GetAll();
             if (shelterId.Equals(Guid.Empty))
                 return View(new AccountUser());
             else
                 return View(await _shelterRepo.GetById(shelterId));
         }
 
-        [Route("Login/Edit")]
-        [HttpGet]
-        public async Task<IActionResult> Login(AccountUser accountUser, string submitAction)
+
+        [Route("/Login/Edit")]
+        [HttpPost]
+        public async Task<IActionResult> Edit(AccountUser accountUser, string submitAction)
         {
-              if (submitAction.Equals("Delete Account"))
-                return RedirectToAction("Delete", new { AccountUserId = accountUser.AccountUserId });
+              //if (submitAction.Equals("Delete Account"))
+                //return RedirectToAction("Delete", new { AccountUserId = accountUser.AccountUserId });
               if(submitAction.Equals("Login"))
             {
                 AccountUser acco = await _shelterRepo.GetByUnlockedandEmail(accountUser);
-                if(acco.AccountUserId != null)
+                if(acco != null)
                 {
                     if (DoesPasswordMatch(acco.PasswordHash, acco.LoginEmail))
                     {
                         //Success!
-                        return RedirectToRoute("Shelter");
+                        return RedirectToRoute("/Shelter/Index");
                     }
                     else
                     {
-                        return RedirectToRoute("Login");
+                        return RedirectToRoute("/Login/Index");
                     }
                 }
 
             }
-            return RedirectToAction("Login");
+            return RedirectToRoute("/Login/Edit");
         }
 
 
-        [Route("/Account/Create")]
-        [HttpPost]
-        public async Task<IActionResult> Edit(AccountUser shelter, String submitAction)
+        [Route("/Login/Create")]
+        [HttpGet]
+        public async Task<IActionResult> Create(Guid shelterId)
         {
-            if (submitAction.Equals("Sign Up"))
+            ViewBag.UserAccounts = await _shelterRepo.GetAll();
+            if (shelterId.Equals(Guid.Empty))
+                return View(new AccountUser());
+            else
+                return View(await _shelterRepo.GetById(shelterId));
+        }
+
+
+        [Route("/Login/Create")]
+        [HttpPost]
+        public async Task<IActionResult> Create(AccountUser shelter, String submitAction)
+        {
+            if (submitAction.Equals("Create"))
             {
                 if (shelter.AccountUserId.Equals(Guid.Empty))
                 {

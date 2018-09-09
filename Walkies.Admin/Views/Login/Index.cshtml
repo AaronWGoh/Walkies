@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Walkies.Common.Models.AccountUser>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Sign Up</a>
+    <a asp-action="Edit">Login</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountUserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserTypeCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoginEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecoveryPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PasswordHash)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CanLogin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsLockedDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResetToken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResetTokenExpiration)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountUserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserTypeCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoginEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecoveryPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PasswordHash)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CanLogin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsLockedDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResetToken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResetTokenExpiration)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Create", "Create", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

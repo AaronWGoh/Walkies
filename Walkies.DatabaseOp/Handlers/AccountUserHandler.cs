@@ -30,7 +30,7 @@ namespace Walkies.DatabaseOperations.Handlers
             protected override async Task<AccountUser> HandleCore(AddCmd cmd)
             {
                 cmd.AccountUserId = _guidProvider.Create();
-                var result = await _repo.QueryAsync<AccountUser>(_repo.Queries.Dog.Insert, cmd);
+                var result = await _repo.QueryAsync<AccountUser>(_repo.Queries.AccountUser.Insert, cmd);
                 return result.FirstOrDefault();
 
             }
