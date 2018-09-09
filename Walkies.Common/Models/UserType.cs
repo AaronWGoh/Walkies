@@ -6,7 +6,7 @@ namespace Walkies.Common.Models
 {
     public class UserType
     {
-        public String UserTYpeCode { get; set; }
+        public String UserTypeCode { get; set; }
         public String Name { get; set; }
     }
 }

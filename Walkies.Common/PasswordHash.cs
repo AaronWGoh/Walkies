@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Walkies.Common.Models;
 
 namespace Walkies.Common
 {
     public class PasswordHash
     {
+        public static AccountUser userauth;
         public string GetNewPassHash(string pass)
         {
             string pwdToHash = pass + "^Y8~JJ"; // ^Y8~JJ is my hard-coded salt

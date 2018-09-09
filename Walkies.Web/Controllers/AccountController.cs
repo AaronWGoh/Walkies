@@ -12,6 +12,7 @@ using Walkies.DatabaseOperations;
 using Walkies.DatabaseOperations.Handlers;
 using BCrypt.Net;
 using BCrypt;
+using Walkies.Common;
 
 namespace Walkies.Web.Controllers
 {
@@ -20,9 +21,11 @@ namespace Walkies.Web.Controllers
     {
         private IConfiguration _config;
         private IMediator _mediatr;
-        private PasswordHash passwordHash = new PasswordHash();
 
         private AccountUserRepository _shelterRepo;
+
+        private PasswordHash passhash = new PasswordHash();
+
 
         public AccountController(IConfiguration config, AccountUserRepository shelterRepo, IMediator mediatr)
         {
@@ -35,24 +38,39 @@ namespace Walkies.Web.Controllers
 
         [Route("/Account/Login")]
         [HttpGet]
-        public IActionResult Login()
+        public async Task<IActionResult> Login(Guid shelterId)
         {
-            return View();
+            ViewBag.UserAccounts = await _shelterRepo.GetAll();
+            if (shelterId.Equals(Guid.Empty))
+                return View(new AccountUser());
+            else
+                return View(await _shelterRepo.GetById(shelterId));
         }
 
 
         [Route("/Account/Login")]
         [HttpPost]
-        public async Task<IActionResult> Login(AccountUser accountUser)
+        public async Task<IActionResult> Login(AccountUser accountUser, string submitAction)
         {
-            AccountUser acco = await _shelterRepo.GetUnlockedAccountsByEmail(accountUser);
-            if (acco != null)
+            //if (submitAction.Equals("Delete Account"))
+            //return RedirectToAction("Delete", new { AccountUserId = accountUser.AccountUserId });
+            if (submitAction.Equals("Login"))
             {
-                if (passwordHash.DoesPasswordMatch(acco.PasswordHash, acco.LoginEmail))
+                AccountUser acco = await _shelterRepo.GetUnlockedAccountsByEmail(accountUser);
+                if (acco != null)
                 {
-                    //Success!
-                    return RedirectToRoute("/Shelter/Index");
+                    if (passhash.DoesPasswordMatch(acco.PasswordHash, acco.LoginEmail))
+                    {
+                        //Success
+                        PasswordHash.userauth = acco;
+                        return RedirectToRoute("/Account/Login");
+                    }
+                    else
+                    {
+                        return RedirectToRoute("/Account/Login");
+                    }
                 }
+
             }
             return RedirectToRoute("/Account/Login");
         }
@@ -60,9 +78,8 @@ namespace Walkies.Web.Controllers
 
         [Route("/Account/Register")]
         [HttpGet]
-        public async Task<IActionResult> Register()
+        public async Task<IActionResult> Register(Guid shelterId)
         {
-            ViewBag.UserAccounts = await _shelterRepo.GetAll();
             return View(new AccountUser());
         }
 
@@ -71,26 +88,41 @@ namespace Walkies.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(AccountUser shelter, String submitAction)
         {
-            if (submitAction.Equals("Submit"))
+            if (submitAction.Equals("Register"))
             {
-                AccountUserHandler.AddCmd addCmd = new AccountUserHandler.AddCmd
+                if (shelter.AccountUserId.Equals(Guid.Empty))
                 {
-                    FirstName = shelter.FirstName,
-                    AccountUserId = shelter.AccountUserId,
-                    LastName = shelter.LastName,
-                    LoginEmail = shelter.LoginEmail,
-                    RecoveryPhone = shelter.RecoveryPhone,
-                    PasswordHash = passwordHash.GetNewPassHash(shelter.PasswordHash),
-                    CanLogin = shelter.CanLogin,
-                    IsLockedDateTime = shelter.IsLockedDateTime,
-                    ResetToken = shelter.ResetToken,
-                    ResetTokenExpiration = shelter.ResetTokenExpiration
-                };
-                await _mediatr.Send(addCmd);
-            } 
+                    AccountUserHandler.AddCmd addCmd = new AccountUserHandler.AddCmd
+                    {
+                        FirstName = shelter.FirstName,
+                        AccountUserId = shelter.AccountUserId,
+                        UserTypeCode = shelter.UserTypeCode,
+                        LastName = shelter.LastName,
+                        LoginEmail = shelter.LoginEmail,
+                        RecoveryPhone = shelter.RecoveryPhone,
+                        PasswordHash = passhash.GetNewPassHash(shelter.PasswordHash),
+                        CanLogin = shelter.CanLogin,
+                        IsLockedDateTime = shelter.IsLockedDateTime,
+                        ResetToken = shelter.ResetToken,
+                        ResetTokenExpiration = shelter.ResetTokenExpiration
+                    };
+                    await _mediatr.Send(addCmd);
+                }
+                else
+                    await _shelterRepo.Update(shelter);
 
-            //In case of cancelation, just returns
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            else
+                return RedirectToAction("Index");
+
+        }
+
+
+        public async Task<IActionResult> Index()
+        {
+            IEnumerable<AccountUser> accountUsers = await _shelterRepo.GetAll();
+            return View(accountUsers);
         }
 
     }

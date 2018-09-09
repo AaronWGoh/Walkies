@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Walkies.Common.Models;
 using Walkies.DatabaseOperations;
+using Walkies.Common;
 
 namespace Walkies.Web.Controllers
 {
@@ -27,6 +28,8 @@ namespace Walkies.Web.Controllers
 
         public IActionResult Index()
         {
+            if (PasswordHash.userauth == null)
+                return RedirectToRoute("/Account/Login");
             return View();
         }
 
