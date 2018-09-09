@@ -17,6 +17,7 @@ namespace Walkies.Web.Controllers
         private IConfiguration _config;
         private UserTypeRepository _userTypeRepo;
         private AccountUserRepository _accountUserRepo;
+
         private PasswordHash passwordHash = new PasswordHash();
 
         public HomeController(IConfiguration config, UserTypeRepository userTypeRepo, AccountUserRepository accountUserRepo)
@@ -26,8 +27,9 @@ namespace Walkies.Web.Controllers
             _accountUserRepo = accountUserRepo;
         }
 
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() { 
+
+            AccountUser use = new AccountUser();
             ViewBag.userTypes = await _userTypeRepo.GetAll();
             return View(new AccountUser());
         }

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Walkies.Common.Models;
 using Walkies.DatabaseOperations;
+using Walkies.Common;
 
 namespace Walkies.Web.Controllers
 {
@@ -23,6 +24,8 @@ namespace Walkies.Web.Controllers
         }
         public async Task<IActionResult> Index()
         {
+            if (PasswordHash.userauth == null)
+                return RedirectToRoute("/Account/Login");
             IEnumerable<Shelter> shelters = await _shelterRepo.GetAll();
             IEnumerable<Dog> dogs = await _dogRepo.GetAll();
 
