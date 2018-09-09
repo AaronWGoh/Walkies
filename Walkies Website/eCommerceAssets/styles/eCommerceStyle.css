@@ -570,7 +570,7 @@ header #headerLinks a {
 	height: 130px;
 }
 #navbar ul{
-		font-size: 12px;
+		font-size: 9px;
 }
 }
 #navbar {
@@ -608,6 +608,7 @@ header #headerLinks a {
 }
 #image_logo{
 	text-align: center;
+	padding-top: 0px;
 }
 
 .google-maps {
