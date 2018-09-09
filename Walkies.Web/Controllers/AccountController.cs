@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Walkies.Common.Models;
+using Walkies.Common;
 using Walkies.DatabaseOperations;
 using Walkies.DatabaseOperations.Handlers;
 using BCrypt.Net;
@@ -19,6 +20,7 @@ namespace Walkies.Web.Controllers
     {
         private IConfiguration _config;
         private IMediator _mediatr;
+        private PasswordHash passwordHash = new PasswordHash();
 
         private AccountUserRepository _shelterRepo;
 
@@ -46,7 +48,7 @@ namespace Walkies.Web.Controllers
             AccountUser acco = await _shelterRepo.GetUnlockedAccountsByEmail(accountUser);
             if (acco != null)
             {
-                if (DoesPasswordMatch(acco.PasswordHash, acco.LoginEmail))
+                if (passwordHash.DoesPasswordMatch(acco.PasswordHash, acco.LoginEmail))
                 {
                     //Success!
                     return RedirectToRoute("/Shelter/Index");
@@ -78,7 +80,7 @@ namespace Walkies.Web.Controllers
                     LastName = shelter.LastName,
                     LoginEmail = shelter.LoginEmail,
                     RecoveryPhone = shelter.RecoveryPhone,
-                    PasswordHash = GetNewPassHash(shelter.PasswordHash),
+                    PasswordHash = passwordHash.GetNewPassHash(shelter.PasswordHash),
                     CanLogin = shelter.CanLogin,
                     IsLockedDateTime = shelter.IsLockedDateTime,
                     ResetToken = shelter.ResetToken,
@@ -91,21 +93,5 @@ namespace Walkies.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        private string GetNewPassHash(string pass)
-        {
-            string pwdToHash = pass + "^Y8~JJ"; // ^Y8~JJ is my hard-coded salt
-            return BCrypt.Net.BCrypt.HashPassword(pwdToHash);
-        }
-
-        private void SetPassword(string user, string userPassword)
-        {
-            string pwdToHash = userPassword + "^Y8~JJ"; // ^Y8~JJ is my hard-coded salt
-            string hashToStoreInDatabase = BCrypt.Net.BCrypt.HashPassword(pwdToHash);
-        }
-
-        private bool DoesPasswordMatch(string hashedPwdFromDatabase, string userEnteredPassword)
-        {
-            return BCrypt.Net.BCrypt.Verify(userEnteredPassword + "^Y8~JJ", hashedPwdFromDatabase);
-        }
     }
 }

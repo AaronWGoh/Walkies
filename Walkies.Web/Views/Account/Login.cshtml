@@ -33,21 +33,12 @@
                 <!--<input type="text"  id="search" value="search">-->
                 <div id="menubar">
                     <nav class="menu">
-                        <h5>
-                            <!-- Title for menuset 1 -->Shelters - Sign up here!
-                            <p></p>
-                            <input type="button" name="button" value="Sign Up" class="SignUp">
-                        </h5>
                         <hr>
-                        <h2>Sign Up to Walk</h2>
+                        <h2>Log in to Walkies</h2>
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                     <form method="post" class="form-horizontal">
-                                        @if (@Model.AccountUserId != Guid.Empty)
-                                        {
-                                            <input type="hidden" name="accountUserId" value="@Model.AccountUserId">
-                                        }
                                         <div class="form-group">
                                             <label asp-for="LoginEmail" class="control-label col-md-2"></label>
                                             <div class="col-md-4">
