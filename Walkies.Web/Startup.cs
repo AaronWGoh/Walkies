@@ -1,17 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Walkies.Common;
+using Walkies.DatabaseOperations;
+using RT.Comb;
+using MediatR;
 
 namespace Walkies.Web
 {
+    public static class ServiceExtensions
+    {
+        public static IEnumerable<object> GetRequiredServices(this IServiceProvider provider, Type serviceType)
+        {
+            return (IEnumerable<object>)provider.GetRequiredService(typeof(IEnumerable<>).MakeGenericType(serviceType));
+        }
+    }
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -24,6 +34,7 @@ namespace Walkies.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IConfiguration>(Configuration);
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -31,6 +42,20 @@ namespace Walkies.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSingleton(typeof(Database), typeof(Database));
+            services.AddSingleton(typeof(Queries), typeof(Queries));
+
+            services.AddSingleton(typeof(RdbmsRepository), typeof(RdbmsRepository));
+            services.AddScoped<SingleInstanceFactory>(p => t => p.GetRequiredService(t));
+            services.AddScoped<MultiInstanceFactory>(p => t => p.GetRequiredServices(t));
+
+            services.Scan(scan => scan
+                  .FromAssembliesOf(typeof(DbDeployer))
+                  .AddClasses(classes => classes.AssignableTo<IRepository>())
+                  .AsSelf()
+              );
+
+            services.AddSingleton(typeof(ICombProvider), new PostgreSqlCombProvider(new UnixDateTimeStrategy()));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

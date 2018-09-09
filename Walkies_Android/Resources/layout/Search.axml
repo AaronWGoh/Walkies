@@ -3,5 +3,18 @@
     p1:minWidth="25px"
     p1:minHeight="25px"
     p1:layout_width="match_parent"
-    p1:layout_height="match_parent"
-    p1:id="@+id/gridLayout1" />
+    p1:layout_height="wrap_content"
+    p1:id="@+id/gridLayout1">
+    <ImageButton
+        p1:src="@android:drawable/ic_menu_gallery"
+        p1:id="@+id/imageButton1" />
+    <ImageButton
+        p1:src="@android:drawable/ic_menu_gallery"
+        p1:id="@+id/imageButton2" />
+    <ImageButton
+        p1:src="@android:drawable/ic_menu_gallery"
+        p1:id="@+id/imageButton3" />
+    <ImageButton
+        p1:src="@android:drawable/ic_menu_gallery"
+        p1:id="@+id/imageButton4" />
+</GridLayout>
