@@ -109,7 +109,7 @@ header {
 #map {
 	font-family: 'Montserrat', sans-serif;
 	clear: both;
-	background-color: rgba(1,185,0,1.00);
+	background-color: rgba(133,255,132,1.00);
 	color: rgba(255,255,255,1.00);
 	padding-top: 4px;
 	padding-bottom: 70px;
@@ -146,7 +146,7 @@ header {
 	text-align: center;
 	background-color: rgba(112,112,112,1.00);
 	padding-top: 36px;
-	height: 380px;
+	height: 398px;
 	padding-bottom: 28px;
 }
 form .form-group #name {
@@ -256,7 +256,7 @@ form .form-group #password {
 	position: relative;
 	top: -48px;
 	width: 84%;
-	background-color: rgba(0,211,255,1.00);
+	background-color: rgba(23,139,0,1.00);
 	height: 35px;
 	color: rgba(255,255,255,1.00);
 	border-style: none;
@@ -489,7 +489,6 @@ footer .footerlinks p {
 #mainWrapper header #headerLinks {
 	width: 100%;
 	text-align: center;
-	background-color: rgba(190,190,190,1.00);
 	padding-bottom: 21px;
 }
 /* Logo placeholder*/
@@ -551,11 +550,19 @@ header #headerLinks a {
 	width: 100%;
 	padding-left: 0px;
 }
+
+#home_second{
+	margin-top: -244px;
+	height: 130px;
+}
+#navbar ul{
+		font-size: 12px;
+}
 }
 #navbar {
 	font-family: 'Montserrat', sans-serif;
 	color: rgba(255,255,255,1);
-	background-color: rgba(0,211,255,1.00);
+	background-color: rgba(0,120,0,1.00);
 	text-decoration: none;
 	text-align: center;
 }
@@ -603,5 +610,6 @@ header #headerLinks a {
         height: 100% !important;
     }
 #support{
+	font-family: 'Montserrat', sans-serif;
 	
 }
