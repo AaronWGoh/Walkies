@@ -18,6 +18,7 @@ namespace Walkies_Android
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            //All DogProfileFields
             base.OnCreate(savedInstanceState);
             foreach(object a in DataBaseGrabber.doglist)
             {
