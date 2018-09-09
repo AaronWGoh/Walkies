@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Help - Walkies";
 }
+@model Walkies.Common.Models.AccountUser;
 <html>
 <head>
     <meta charset="utf-8">
@@ -38,9 +39,77 @@
             <p>Email us at</p>
         </div>
 
-        <div id="content"> </div>
+        <div id="content">
+            <section class="sidebar_Home">
+                <!-- This adds a sidebar with 1 searchbox,2 menusets, each with 4 links -->
+                <!--<input type="text"  id="search" value="search">-->
+                <div id="menubar">
+                    <nav class="menu">
+                        <h5>
+                            <!-- Title for menuset 1 -->Shelters - Sign up here!
+                            <p></p>
+                            <input type="button" name="button" value="Sign Up" class="SignUp">
+                        </h5>
+                        <hr>
+                        <h2>Sign Up to Walk</h2>
+                        <form method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"></label>
+                                <div class="col-md-4">
+                                    <input asp-for="FirstName" class="form-control" placeholder="First Name" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2"></label>
+                                <div class="col-md-4">
+                                    <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2"></label>
+                                <div class="col-md-4">
+                                    <select asp-for="UserTypeCode" class="form-control" required asp-items="@(new SelectList(ViewBag.userTypes, "UserTypeCode", "Name"))" placeholder="User Type"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2"></label>
+                                <div class="col-md-4">
+                                    <input asp-for="LoginEmail" class="form-control" required placeholder="Email" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2"></label>
+                                <div class="col-md-4">
+                                    <input asp-for="Password" class="form-control" required placeholder="Password" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2"></label>
+                                <div class="col-md-4">
+                                    <input type="tel" asp-for="RecoveryPhone" class="form-control" placeholder="Phone Number" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <br><br />
+                                <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-plus"></i> Sign up</button>
+                            </div>
+                        </form>
+                        <ul>
+                            <!-- List of links under menuset 1 -->
+                            <!--<li><a href="#" title="Link">Link 1</a></li>
+                        <li><a href="#" title="Link">Link 2</a></li>
+                        <li><a href="#" title="Link">Link 3</a></li>
+                        <li class="notimp"><!-- notimp class is applied to remove this link from the tablet and phone views <a href="#"  title="Link">Link 4</a></li>-->
+                        </ul>
+                    </nav>
+
+                </div>
+            </section>
+            <footer><a href="@Url.Content("~/Home/Help")">Help</a></footer>
+
+        </div>
         <!--<footer>
-      <!-- This is the footer with default 3 divs -->
+    <!-- This is the footer with default 3 divs -->
         <!--<div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam varius sem neque. Integer ornare.</p>
       </div>
@@ -54,5 +123,6 @@
       </div>
     </footer>-->
     </div>
+
 </body>
 </html>
