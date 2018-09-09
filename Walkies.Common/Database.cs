@@ -7,7 +7,7 @@ namespace Walkies.Common
     using System.Data.SqlClient;
     using Microsoft.Extensions.Configuration;
     using Dapper;
-
+    
     public class Database
     {
         private IConfiguration _cfg;
