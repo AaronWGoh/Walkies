@@ -23,54 +23,14 @@ namespace Walkies.Web.Controllers
             _shelterRepo = shelterRepo;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Shelter()
         {
-            IEnumerable<Shelter> shelters = await _shelterRepo.GetAll();
-            return View(shelters);
+            return View();
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Edit(Guid id)
+        public IActionResult Doggos()
         {
-            if (id == null)
-                return View();
-            else
-                return View(await _shelterRepo.GetById(id));
+            return View();
         }
-
-        [HttpPut]
-        public async Task<IActionResult> Edit(Shelter shelter, String submitAction)
-        {
-            if (submitAction.Equals("SaveAndReturn"))
-            {
-                if (await _shelterRepo.GetById(shelter.ShelterId) == null)
-                    await _shelterRepo.Insert(shelter);
-                else
-                    await _shelterRepo.Update(shelter);
-
-                return RedirectToAction("Index");
-            }
-            else if (submitAction.Equals("SaveAndAdd"))
-            {
-                if (await _shelterRepo.GetById(shelter.ShelterId) == null)
-                    await _shelterRepo.Insert(shelter);
-                else
-                    await _shelterRepo.Update(shelter);
-
-                return RedirectToAction("Edit");
-            }
-            else if (submitAction.Equals("Delete"))
-                return RedirectToAction("Delete", new { id = shelter.ShelterId });
-            else
-                return RedirectToAction("Index");
-
-        }
-
-        public async Task<IActionResult> Delete(Guid id)
-        {
-            await _shelterRepo.Delete(id);
-            return RedirectToAction("Index");
-        }
-
     }
 }

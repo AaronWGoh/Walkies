@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Homepage - Walkies";
+    ViewData["Title"] = "Doggos - Walkies";
 }
 <html>
 <head>
@@ -16,28 +16,16 @@
     <div id="mainWrapper">
         <header>
             <!-- This is the header content. It contains Logo and links -->
-            <div id="headerLinks"><strong><a href="@Url.Content("~/Account/Profile")">Profile</a></strong></div>
-        </header>
-        <section id="doggo_logo"></section>
-        <section id="image_logo">
+
+            <div id="headerLinks"><a href="@Url.Content("~/Account/LoginRegister")">Login/Register</a><a href="@Url.Content("~/Account/Profile")">Profile</a></div>
             <a href="@Url.Content("~/Home/Index")">
-                <img src="@Url.Content("~/Images/DoggoLogo.png")" width="350" height="348" alt="" /><img src="@Url.Content("~/Images/TextLogo.png")" width="400" height="317" alt="" />
+                <img src="@Url.Content("~Images/TextLogo.png")" width="200" height="164" alt="" />
             </a>
+        </header>
+        <section id="shelter">
+            <!-- The offer section displays a banner text for promotions -->
+            <h2>Dogs</h2>
         </section>
-        <a href="@Url.Content("~/Map/MapPage")" id="home_first">
-            <section id="home_first2">
-                <!-- The offer section displays a banner text for promotions -->
-                <h1>Map</h1>
-                <h4>Find a Shelter Near You</h4>
-            </section>
-        </a>
-        <a href="@Url.Content("~/Shelter/Shelter")" id="home_second">
-            <section>
-                <!-- The offer section displays a banner text for promotions -->
-                <h1>Shelter</h1>
-                <h4>Reserve a Dog to Walk at a Shelter Near You</h4>
-            </section>
-        </a>
         <div id="navbar">
             <ul>
                 <li><a href="@Url.Content("~/Home/Index")">Home</a></li>
@@ -48,7 +36,7 @@
         </div>
 
         <div id="content">
-            <section class="sidebar_Home">
+            <section class="sidebar">
                 <!-- This adds a sidebar with 1 searchbox,2 menusets, each with 4 links -->
                 <!--<input type="text"  id="search" value="search">-->
                 <div id="menubar">
@@ -95,32 +83,56 @@
                         <ul>
                             <!-- List of links under menuset 1 -->
                             <!--<li><a href="#" title="Link">Link 1</a></li>
-                            <li><a href="#" title="Link">Link 2</a></li>
-                            <li><a href="#" title="Link">Link 3</a></li>
-                            <li class="notimp"><!-- notimp class is applied to remove this link from the tablet and phone views <a href="#"  title="Link">Link 4</a></li>-->
+                        <li><a href="#" title="Link">Link 2</a></li>
+                        <li><a href="#" title="Link">Link 3</a></li>
+                        <li class="notimp"><!-- notimp class is applied to remove this link from the tablet and phone views <a href="#"  title="Link">Link 4</a></li>-->
                         </ul>
                     </nav>
 
                 </div>
             </section>
-            <footer><a href="@Url.Content("~/Home/Help")">Help</a></footer>
-
+            <section class="mainContent">
+                <div class="productRow">
+                    <!-- Each product row contains info of 3 elements -->
+                    <article class="productInfo">
+                        <!-- Each individual product description -->
+                        <div><img alt="sample" src="@Url.Content("~/Images/cutepupper.jpg")"></div>
+                        <p class="price">Jamie</p>
+                        <p class="productContent"></p>
+                        <input type="button" name="button" value="Walk" class="buyButton">
+                    </article>
+                    <article class="productInfo">
+                        <!-- Each individual product description -->
+                        <div><img alt="sample" src="@Url.Content("~/Images/Dog.jpg")"></div>
+                        <p class="price">Bud</p>
+                        <p class="productContent"></p>
+                        <input type="button" name="button" value="Walk" class="buyButton">
+                    </article>
+                    <article class="productInfo">
+                        <!-- Each individual product description -->
+                        <div><img alt="sample" src="@Url.Content("~/Images/doggyboi.jpg")"></div>
+                        <p class="price">Good Boi</p>
+                        <p class="productContent"></p>
+                        <input type="button" name="button" value="Walk" class="buyButton">
+                    </article>
+                </div>
+            </section>
         </div>
+        <footer><a href="@Url.Content("~/Home/Help")">Help</a></footer>
         <!--<footer>
-          <!-- This is the footer with default 3 divs -->
+      <!-- This is the footer with default 3 divs -->
         <!--<div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam varius sem neque. Integer ornare.</p>
-          </div>
-          <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam varius sem neque. Integer ornare.</p>
-          </div>
-          <div class="footerlinks">
-            <p><a href="#" title="Link">Link 1 </a></p>
-            <p><a href="#" title="Link">Link 2</a></p>
-            <p><a href="#" title="Link">Link 3</a></p>
-          </div>
-        </footer>-->
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam varius sem neque. Integer ornare.</p>
+      </div>
+      <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam varius sem neque. Integer ornare.</p>
+      </div>
+      <div class="footerlinks">
+        <p><a href="#" title="Link">Link 1 </a></p>
+        <p><a href="#" title="Link">Link 2</a></p>
+        <p><a href="#" title="Link">Link 3</a></p>
+      </div>
+    </footer>-->
     </div>
 </body>
 </html>
-

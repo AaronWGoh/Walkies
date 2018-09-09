@@ -1,0 +1,152 @@
+﻿@{
+    ViewData["Title"] = "Shelter - Walkies";
+}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>eCommerce template By Adobe Dreamweaver CC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="@Url.Content("~/eCommerceAssets/styles/eCommerceStyle.css")" rel="stylesheet" type="text/css">
+    <!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+    <script>var __adobewebfontsappname__="dreamweaver"</script>
+    <script src="https://use.edgefonts.net/montserrat:n4:default;source-sans-pro:n2:default.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="mainWrapper">
+        <header>
+            <!-- This is the header content. It contains Logo and links -->
+
+            <div id="headerLinks"><a href="@Url.Content("~/Account/LoginRegister")">Login/Register</a><a href="@Url.Content("~/Account/Profile")">Profile</a></div>
+            <a href="@Url.Content("~/Home/Index")">
+                <img src="@Url.Content("~/Images/TextLogo.png")" width="200" height="164" alt="" />
+            </a>
+        </header>
+        <section id="shelter">
+            <!-- The offer section displays a banner text for promotions -->
+            <h2>Shelter</h2>
+
+        </section>
+        <div id="navbar">
+            <ul>
+                <li><a href="@Url.Content("~/Home/Index")">Home</a></li>
+                <li><a href="@Url.Content("~/Shelter/Shelter")">Shelter</a></li>
+                <li><a href="@Url.Content("~/Map/MapPage")">Map</a></li>
+                <li><a href="@Url.Content("~/Map/DogWalker")">Walker Tracker</a></li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <section class="sidebar">
+                <!-- This adds a sidebar with 1 searchbox,2 menusets, each with 4 links -->
+                <!--<input type="text"  id="search" value="search">-->
+                <div id="menubar">
+                    <nav class="menu">
+                        <h5>
+                            <!-- Title for menuset 1 -->Shelters - Sign up here!
+                            <p></p>
+                            <input type="button" name="button" value="Sign Up" class="SignUp">
+                        </h5>
+                        <hr>
+                        <h2>Sign Up to Walk</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="name1"></label>
+                                <input type="name" class="form-control" id="name" aria-describedby="name" placeholder="First Name">
+                                <small id="name1" class="form-text text-muted"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="name2"></label>
+                                <input type="name2" class="form-control" id="name2" aria-describedby="name" placeholder="Last Name">
+                                <small id="name_last" class="form-text text-muted"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="Email"></label>
+                                <input type="email" class="form-control" id="Email" aria-describedby="email" placeholder="Email">
+                                <small id="email" class="form-text text-muted"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="Phone"></label>
+                                <input type="phone" class="form-control" id="Phone" aria-describedby="phone" placeholder="Phone">
+                                <small id="phone" class="form-text text-muted"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="Password"></label>
+                                <input type="password" class="form-control" id="password" aria-describedby="password" placeholder="Password">
+                                <small id="password1" class="form-text text-muted"></small>
+                            </div>
+                            <p></p>
+                            <a href="@Url.Content("~/Home/Index")">
+                                <button type="submit" class="Submit">Submit</button>
+                            </a>
+                        </form>
+
+                        <ul>
+                            <!-- List of links under menuset 1 -->
+                            <!--<li><a href="#" title="Link">Link 1</a></li>
+                        <li><a href="#" title="Link">Link 2</a></li>
+                        <li><a href="#" title="Link">Link 3</a></li>
+                        <li class="notimp"><!-- notimp class is applied to remove this link from the tablet and phone views <a href="#"  title="Link">Link 4</a></li>-->
+                        </ul>
+                    </nav>
+
+                </div>
+            </section>
+            <section class="mainContent">
+                <div class="productRow">
+                    <!-- Each product row contains info of 3 elements -->
+                    <article class="productInfo">
+                        <!-- Each individual product description -->
+                        <div><img alt="sample" src="@Url.Content("~/Images/programs_landing_header.png")"></div>
+                        <p class="price">Best Friends Animal Society </p>
+                        <p class="productContent">"Located in the red rock canyons of southern Utah, it is a home-between-homes for dogs, cats, bunnies, birds, pigs, horses and other animals, including those in need of lifelong care."</p>
+                        <p class="productContent">2005 1100 E, Salt Lake City, UT 84106</p>
+                        <p class="productContent">Open M-F from 11am - 7pm, and Sun from 11am -4pm</p>
+                        <a href="@Url.Content("~/Shelter/Doggos")">
+                            <input type="button" name="button" value="Go" class="buyButton">
+                        </a>
+                    </article>
+                    <article class="productInfo">
+                        <!-- Each individual product description -->
+                        <div><img alt="sample" src="@Url.Content("~/Images/Salt-Lake-County.jpg")"></div>
+                        <p class="price">Salt Lake County Animal Services </p>
+                        <p class="productContent">"Salt Lake County Animal Services is dedicated to providing consistent, reliable, and professional solutions for animal related issues."</p>
+                        <p class="productContent">511 W 3900 S, Salt Lake City, UT 84123</p>
+                        <p class="productContent">Open M-Sat, from 10am - 6pm</p>
+                        <a href="@Url.Content("~/Shelter/Doggos")">
+                            <input type="button" name="button" value="Go" class="buyButton">
+                        </a>
+                    </article>
+                    <article class="productInfo">
+                        <!-- Each individual product description -->
+                        <div><img alt="sample" src="@Url.Content("~/Images/Calypso-1.jpg")"></div>
+                        <p class="price">Second Chance for Homeless Pets </p>
+                        <p class="productContent">"At Second Chance our priority is finding the best match for each animal.  Like people, animals are individuals and have different needs for a successful adoption, according to their personalities."</p>
+                        <p class="productContent">200 E Gordon Ln, Salt Lake City, UT 84107</p>
+                        <p class="productContent">Open T-Sat, from 9am - 6pm, and Sun from 11am - 4pm</p>
+                        <a href="@Url.Content("~/Shelter/Doggos")">
+                            <input type="button" name="button" value="Go" class="buyButton">
+                        </a>
+                    </article>
+                </div>
+            </section>
+        </div>
+        <footer><a href="@Url.Content("~/Home/Help")">Help</a></footer>
+        <!--<footer>
+      <!-- This is the footer with default 3 divs -->
+        <!--<div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam varius sem neque. Integer ornare.</p>
+      </div>
+      <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam varius sem neque. Integer ornare.</p>
+      </div>
+      <div class="footerlinks">
+        <p><a href="#" title="Link">Link 1 </a></p>
+        <p><a href="#" title="Link">Link 2</a></p>
+        <p><a href="#" title="Link">Link 3</a></p>
+      </div>
+    </footer>-->
+    </div>
+</body>
+</html>
+

@@ -25,8 +25,9 @@ namespace Walkies.Admin.Controllers
             string hashToStoreInDatabase = BCrypt.Net.BCrypt.HashPassword(pwdToHash);
         }
 
-    private bool DoesPasswordMatch(string hashedPwdFromDatabase, string userEnteredPassword)
-    {
-        return BCrypt.Net.BCrypt.Verify(userEnteredPassword + "^Y8~JJ", hashedPwdFromDatabase);
+        private bool DoesPasswordMatch(string hashedPwdFromDatabase, string userEnteredPassword)
+        {
+            return BCrypt.Net.BCrypt.Verify(userEnteredPassword + "^Y8~JJ", hashedPwdFromDatabase);
+        }
     }
 }
