@@ -29,9 +29,9 @@ namespace Walkies.DatabaseOperations
         /// </summary>
         /// <param name="accountUser"></param>
         /// <returns></returns>
-        public async Task<AccountUser> GetUnlockedAccountsByEmail(AccountUser accountUser)
+        public async Task<AccountUser> GetByEmail(AccountUser accountUser)
         {
-            var result = await QueryAsync<AccountUser>(_qs.AccountUser.GetUnlockedAccountsByEmail, accountUser);
+            var result = await QueryAsync<AccountUser>(_qs.AccountUser.GetByEmail, accountUser);
             return result.FirstOrDefault();
         }
 

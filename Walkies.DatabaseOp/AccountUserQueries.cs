@@ -23,11 +23,11 @@ namespace Walkies.DatabaseOperations
             }
         }
 
-        public string GetUnlockedAccountsByEmail
+        public string GetByEmail
         {
             get
             {
-                return "select * from AccountUser where CanLogin = '1' and LoginEmail = @LoginEmail";
+                return "select * from AccountUser where LoginEmail = @LoginEmail";
             }
         }
 
