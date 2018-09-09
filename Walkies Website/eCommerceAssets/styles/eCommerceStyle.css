@@ -98,7 +98,7 @@ header {
 #shelter {
 	font-family: 'Montserrat', sans-serif;
 	clear: both;
-	background-color: rgba(77,94,77,1.00);
+	background-color: rgba(90,180,0,1.00);
 	color: rgba(255,255,255,1.00);
 	padding-top: 4px;
 	padding-bottom: 70px;
@@ -147,6 +147,20 @@ header {
 	background-color: rgba(112,112,112,1.00);
 	padding-top: 36px;
 	height: 398px;
+	padding-bottom: 28px;
+}
+
+#content .sidebar_Profile {
+	font-family: 'Montserrat', sans-serif;
+	color: rgba(146,146,146,1.00);
+	float: right;
+	width: 94%;
+	padding-left: 3%;
+	padding-right: 3%;
+	text-align: center;
+	background-color: rgba(112,112,112,1.00);
+	padding-top: 36px;
+	height: 261px;
 	padding-bottom: 28px;
 }
 form .form-group #name {
