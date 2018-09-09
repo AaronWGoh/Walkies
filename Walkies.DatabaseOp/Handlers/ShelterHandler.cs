@@ -4,7 +4,6 @@ using System.Text;
 
 namespace Walkies.DatabaseOperations.Handlers
 {
-    using Walkies.Common;
     using Walkies.Common.Models;
     using MediatR;
     using System.Threading.Tasks;
@@ -32,7 +31,6 @@ namespace Walkies.DatabaseOperations.Handlers
                 cmd.ShelterId = _guidProvider.Create();
                 var result = await _repo.QueryAsync<Shelter>(_repo.Queries.Shelter.Insert, cmd);
                 return result.FirstOrDefault();
-
             }
         }
 

@@ -15,6 +15,14 @@ namespace Walkies.DatabaseOperations
             }
         }
 
+        public string GetAllByShelterId
+        {
+            get
+            {
+                return "select * from Dog where ShelterId = @ShelterId";
+            }
+        }
+
         public string GetById
         {
             get
@@ -27,8 +35,8 @@ namespace Walkies.DatabaseOperations
         {
             get
             {
-                return @"insert into Dog (DogId, ShelterId, Name, Description, Breed, AvailableDate, PrimaryImageFile, IsPublic)" +
-                    "       values (@DogId, @ShelterId, @Name, @Description, @Breed, @AvailableDate, @PrimaryImageFIle, @IsPublic)";
+                return @"insert into Dog (DogId, ShelterId, Name, Description, Breed, AvailableDate, PrimaryImageFileId, IsPublic)" +
+                    "       values (@DogId, @ShelterId, @Name, @Description, @Breed, @AvailableDate, @PrimaryImageFileId, @IsPublic)";
             }
         }
 

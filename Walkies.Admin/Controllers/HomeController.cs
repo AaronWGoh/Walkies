@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Walkies.Admin.Models;
 
@@ -10,6 +11,12 @@ namespace Walkies.Admin.Controllers
 {
     public class HomeController : Controller
     {
+        private IMediator _mediatr;
+        public HomeController(IMediator mediatr)
+        {
+            _mediatr = mediatr;
+        }
+
         public IActionResult Index()
         {
             return View();

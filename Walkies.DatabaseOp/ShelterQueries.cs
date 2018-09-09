@@ -46,7 +46,7 @@ namespace Walkies.DatabaseOperations
                         Zip = @Zip,
                         Latitude = @Latitude,
                         Longitude = @Longitude,
-                        Phone  @Phone,
+                        Phone = @Phone,
                         Fax = @Fax,
                         Email = @Email
                     where ShelterId = @ShelterId";

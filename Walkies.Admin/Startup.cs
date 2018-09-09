@@ -11,6 +11,7 @@ using Walkies.Common;
 using Walkies.DatabaseOperations;
 using RT.Comb;
 using MediatR;
+using Walkies.DatabaseOperations.Handlers;
 
 namespace Walkies.Admin
 {
@@ -34,7 +35,7 @@ namespace Walkies.Admin
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddSingleton(Configuration);
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -55,6 +56,7 @@ namespace Walkies.Admin
                   .AsSelf()
               );
 
+            services.AddMediatR(typeof(ShelterHandler));
             services.AddSingleton(typeof(ICombProvider), new PostgreSqlCombProvider(new UnixDateTimeStrategy()));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
