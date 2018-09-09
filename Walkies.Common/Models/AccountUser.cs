@@ -23,6 +23,8 @@ namespace Walkies.Common.Models
         public string RecoveryPhone { get; set; }
         [Required, Display(Name = "Password"), MaxLength(70), DataType(DataType.Password)]
         public string PasswordHash { get; set; }
+
+        public string Password { get; set; }
         [Display(Name = "Can Login")]
         public bool? CanLogin { get; set; }
         public DateTime? IsLockedDateTime { get; set; }
