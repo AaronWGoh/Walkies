@@ -18,6 +18,11 @@ namespace Walkies.DatabaseOperations
             return await QueryAsync<Dog>(_qs.Dog.GetAll);
         }
 
+        public async Task<IEnumerable<Dog>> GetAllByShelterId(Guid id)
+        {
+            return await QueryAsync<Dog>(_qs.Dog.GetAllByShelterId, new { ShelterId = id });
+        }
+
         public async Task<Dog> GetById(Guid id)
         {
             var result = await QueryAsync<Dog>(_qs.Dog.GetById, new { DogId = id });

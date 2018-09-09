@@ -47,7 +47,7 @@
         @foreach (var Items in Model)
         {
             <tr>
-                <td>@Items.Name</td>
+                <td><a href="@Url.Content("~/")Shelter/@Items.ShelterId/Dog">@Items.Name</a></td>
                 <td>@Items.Email</td>
                 <td>@Items.Phone</td>
                 <td>@Items.Fax</td>
