@@ -22,6 +22,8 @@ namespace Walkies.Admin.Controllers
 
         private AccountUserRepository _shelterRepo;
 
+        private AccountUser userAuth = null;
+
         public LoginController(IConfiguration config, AccountUserRepository shelterRepo, IMediator mediatr)
         {
             _config = config;
@@ -56,8 +58,9 @@ namespace Walkies.Admin.Controllers
                 {
                     if (DoesPasswordMatch(acco.PasswordHash, acco.LoginEmail))
                     {
-                        //Success!
-                        return RedirectToRoute("/Shelter/Index");
+                        //Success
+                        userAuth = acco;
+                        return RedirectToRoute("/Login/Index");
                     }
                     else
                     {
@@ -90,6 +93,7 @@ namespace Walkies.Admin.Controllers
                     {
                         FirstName = shelter.FirstName,
                         AccountUserId = shelter.AccountUserId,
+                        UserTypeCode = shelter.UserTypeCode,
                         LastName = shelter.LastName,
                         LoginEmail = shelter.LoginEmail,
                         RecoveryPhone = shelter.RecoveryPhone,
@@ -129,6 +133,11 @@ namespace Walkies.Admin.Controllers
         {
             string pwdToHash = userPassword + "^Y8~JJ"; // ^Y8~JJ is my hard-coded salt
             string hashToStoreInDatabase = BCrypt.Net.BCrypt.HashPassword(pwdToHash);
+        }
+
+        public AccountUser GetProfile()
+        {
+            return userAuth;
         }
 
         private bool DoesPasswordMatch(string hashedPwdFromDatabase, string userEnteredPassword)
