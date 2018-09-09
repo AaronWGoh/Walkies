@@ -3,6 +3,19 @@
 a:hover {
 	color: rgba(255,255,255,1.00);
 }
+#home_first h2 a {
+	color: rgba(255,255,255,1.00);
+
+}
+#home_second h2 a {
+	color: rgba(255,255,255,1.00);
+}
+#home_first h2 a:hover {
+	color: rgba(0,0,0,1.00);
+}
+
+
+
 /*header*/
 header {
 	font-family: 'Montserrat', sans-serif;
@@ -11,6 +24,10 @@ header {
 	font-style: normal;
 	font-weight: 400;
 }
+#home_second h2 a:hover {
+	color: rgba(0,0,0,1.00);
+}
+
 /* Logo placeholder*/
 #logo {
 	float: left;
@@ -143,7 +160,6 @@ header {
 #mainWrapper {
 	width: 80%;
 	padding-left: 10%;
-	padding-top: 0px;
 }
 /*menu elements */
 .menu ul li {
@@ -515,4 +531,7 @@ header #headerLinks a {
 #form1{
 	color: rgba(255,255,255,1.00);
 	text-align: left;
+}
+#image_logo{
+	text-align: center;
 }
