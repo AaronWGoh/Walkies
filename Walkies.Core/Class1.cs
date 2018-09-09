@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Net.Http;
+using System.Data.Common;
 namespace Walkies.Cross
 {
     public static class DataBaseGrabber
@@ -15,7 +16,6 @@ namespace Walkies.Cross
 
         public static DogProfile[] UpdateProfiles()
         {
-
 
             return new DogProfile[0];
 
